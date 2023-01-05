@@ -1,6 +1,6 @@
 {
     "Hadoop Basic": {
-        "prefix": "jacConnectionProfileHadoopBasic",
+        "prefix": "jac-Connection-Profile-Hadoop-Basic",
         "body": [
             "cp_spark = ConnectionProfileHadoop(",
             "    'SPARK_CONNECTION_PROFILE',",
@@ -13,7 +13,7 @@
         "description": "These are the required parameters for all Hadoop job types."
     },
     "Apache Oozie": {
-        "prefix": "jacConnectionProfileApacheOozie",
+        "prefix": "jac-Connection-Profile-Apache-Oozie",
         "body": [
             "cp_ooze = ConnectionProfileHadoop(",
             "    'OOZIE_CONNECTION_PROFILE',",
@@ -34,7 +34,7 @@
         "description": "The following example shows a connection profile that defines access to a Apache Oozie server."
     },
     "Apache Sqoop": {
-        "prefix": "jacConnectionProfileApacheSqoop",
+        "prefix": "jac-Connection-Profile-Apache-Sqoop",
         "body": [
             "cp_sqoop = ConnectionProfileHadoop(",
             "    'SQOOP_CONNECTION_PROFILE',",
@@ -50,7 +50,7 @@
         "description": "The following example shows a connection profile that defines access to a Apache Sqoop server."
     },
     "Apache Tajo": {
-        "prefix": "jacConnectionProfileApacheTajo",
+        "prefix": "jac-Connection-Profile-Apache-Tajo",
         "body": [
             "cp_tajo = ConnectionProfileHadoop(",
             "    'TAJO_CP',",
@@ -62,7 +62,7 @@
         "description": "The following example shows a connection profile that defines access to a Apache Tajo server."
     },
     "Apache Hive Basic": {
-        "prefix": "jacConnectionProfileApacheHiveBasic",
+        "prefix": "jac-Connection-Profile-Apache-Hive-Basic",
         "body": [
             "cp_hive = ConnectionProfileHadoop('HIVE_CONNECTION_PROFILE',",
             "                                  centralized=True,",
@@ -77,7 +77,7 @@
         "description": "The following example shows a connection profile that defines access to a Apache Hive server."
     },
     "File Transfer FTP Basic": {
-        "prefix": "jacConnectionProfileFileTransferFTPBasic",
+        "prefix": "jac-Connection-Profile-File-Transfer-FTP-Basic",
         "body": [
             "ftcon = ConnectionProfileFileTransferFTP('FTPConn',",
             "                                         target_agent='agent',",
@@ -96,7 +96,7 @@
         "description": "The following examples show a connection profile for a file transfer to a single endpoint using the FTP communication protocol."
     },
     "File Transfer SFTP Basic": {
-        "prefix": "jacConnectionProfileFileTransferSFTPBasic",
+        "prefix": "jac-Connection-Profile-File-Transfer-SFTP-Basic",
         "body": [
             "ftcon = ConnectionProfileFileTransferSFTP('SFTPConn',",
             "                                         target_agent='agent',",
@@ -117,7 +117,7 @@
         "description": "The following examples show a connection profile for a file transfer to a single endpoint using the SFTP (SSH File Transfer Protocol) communication protocol."
     },
     "File Transfer FTP Secure": {
-        "prefix": "jacConnectionProfileFileTransferFTPSecure",
+        "prefix": "jac-Connection-Profile-File-Transfer-FTP-Secure",
         "body": [
             "ftcon = ConnectionProfileFileTransferFTPS('FTPSConn',",
             "                                         target_agent='agent',",
@@ -140,7 +140,7 @@
         "description": "The following examples show a connection profile for a file transfer to a single endpoint using the FTP with SSL communication protocol."
     },
     "File Transfer Local": {
-        "prefix": "jacConnectionProfileFileTransferLocal",
+        "prefix": "jac-Connection-Profile-File-Transfer-Local",
         "body": [
             "ftcon = ConnectionProfileFileTransferLocal('LocalConn',",
             "                                         target_agent='agent',",
@@ -157,7 +157,7 @@
         "description": "The following example shows a connection profile for a file transfer to a single endpoint on a Local File System."
     },
     "File Transfer S3 Amazon": {
-        "prefix": "jacConnectionProfileFileTransferS3Amazon",
+        "prefix": "jac-Connection-Profile-File-Transfer-S3-Amazon",
         "body": [
             "ftcon = ConnectionProfileFileTransferS3Amazon('testAmazon',",
             "                                              centralized=True,",
@@ -174,7 +174,7 @@
         "description": "The following example shows a connection profile for file transfers between a local filesystem and an Amazon S3 storage service."
     },
     "File Transfer S3 Compatible": {
-        "prefix": "jacConnectionProfileFileTransferS3Compatible",
+        "prefix": "jac-Connection-Profile-File-Transfer-S3-Compatible",
         "body": [
             "ftcon = ConnectionProfileFileTransferS3Compatible('testCompatible',",
             "                                              centralized=True,",
@@ -191,7 +191,7 @@
         "description": "The following example shows a connection profile for file transfers between a local filesystem and an S3-compatible storage service."
     },
     "File Transfer AS2": {
-        "prefix": "jacConnectionProfileFileTransferAS2",
+        "prefix": "jac-Connection-Profile-File-Transfer-AS2",
         "body": [
             "ftcon = ConnectionProfileFileTransferAS2('AS2_Conn_1',",
             "                                         centralized=True,",
@@ -204,7 +204,7 @@
         "description": "The following example shows a connection profile for file transfers between a B2B and an AS2-compatible service."
     },
     "Database DB2": {
-        "prefix": "jacConnectionProfileDatabaseDB2",
+        "prefix": "jac-Connection-Profile-Database-DB2",
         "body": [
             "cpdb = ConnectionProfileDatabaseDB2(",
             "    'DB2_CONNECTION_PROFILE',",
@@ -219,7 +219,7 @@
         "description": "The following example shows how to define a connection profile for DB2"
     },
     "Database JDBC Basic": {
-        "prefix": "jacConnectionProfileDatabaseJDBCBasic",
+        "prefix": "jac-Connection-Profile-Database-JDBC-Basic",
         "body": [
             "cpdb = ConnectionProfileDatabaseJDBC(",
             "    'JDBC_CONNECTION_PROFILE',",
@@ -235,7 +235,7 @@
         "description": "The following example shows how to define a connection profile using a custom defined database type created using JDBC"
     },
     "Database MSSQL Basic": {
-        "prefix": "jacConnectionProfileDatabaseMSSQLBasic",
+        "prefix": "jac-Connection-Profile-Database-MSSQL-Basic",
         "body": [
             "cpdb = ConnectionProfileDatabaseMSSql(",
             "    'MSSQL_CONNECTION_PROFILE',",
@@ -254,7 +254,7 @@
         "description": "The following example shows how to define an MSSQL database connection profile."
     },
     "Database Oracle SID": {
-        "prefix": "jacConnectionProfileDatabaseOracleSID",
+        "prefix": "jac-Connection-Profile-Database-Oracle-SID",
         "body": [
             "cpdb = ConnectionProfileDatabaseOracleSID(",
             "    'ORACLE_CONNECTION_PROFILE',",
@@ -268,7 +268,7 @@
         "description": "The following example shows how to define a connection profile for an Oracle database using the SID identifier."
     },
     "Database Oracle Service Name": {
-        "prefix": "jacConnectionProfileDatabaseOracleServiceName",
+        "prefix": "jac-Connection-Profile-Database-Oracle-Service-Name",
         "body": [
             "cpdb = ConnectionProfileDatabaseOracleServiceName(",
             "    'ORACLE_CONNECTION_PROFILE',",
@@ -282,7 +282,7 @@
         "description": "The following example shows how to define a connection profile for an Oracle database using a single service name."
     },
     "Database Oracle Connection String": {
-        "prefix": "jacConnectionProfileDatabaseOracleConnectionString",
+        "prefix": "jac-Connection-Profile-Database-Oracle-Connection-String",
         "body": [
             "cpdb = ConnectionProfileDatabaseOracleConnectionString(",
             "    'ORACLE_CONNECTION_PROFILE',",
@@ -296,7 +296,7 @@
         "description": "The following example shows how to define a connection profile for an Oracle database using a connection string that contains text from your tnsname.ora file."
     },
     "Database PostgreSQL": {
-        "prefix": "jacConnectionProfileDatabasePostgreSQL",
+        "prefix": "jac-Connection-Profile-Database-PostgreSQL",
         "body": [
             "cpdb = ConnectionProfileDatabasePostgreSql(",
             "    'POSTGRESQL_CONNECTION_PROFILE',",
@@ -310,7 +310,7 @@
         "description": "The following example shows how to define a connection profile for PostgreSQL."
     },
     "SAP Application Server": {
-        "prefix": "jacConnectionProfileSAPApplicationServer",
+        "prefix": "jac-Connection-Profile-SAP-Application-Server",
         "body": [
             "cpsap = ConnectionProfileSAP(",
             "    'SAPCON',",
@@ -339,7 +339,7 @@
         "description": "The following example is for a connection profile for a specific SAP Application Server"
     },
     "Informatica Basic": {
-        "prefix": "jacConnectionProfileInformaticaBasic",
+        "prefix": "jac-Connection-Profile-Informatica-Basic",
         "body": [
             "cpinf = ConnectionProfileInformatica('INFORMATICA_CONNECTION',",
             "                                     centralized=True,",
@@ -357,7 +357,7 @@
         "description": "The following example shows how to define a connection profile for an Informatica job"
     },
     "AWS": {
-        "prefix": "jacConnectionProfileAWS",
+        "prefix": "jac-Connection-Profile-AWS",
         "body": [
             "cpaws = ConnectionProfileAWS('AWS_CONNECTION_IAMROLE',",
             "                             centralized=True,",
@@ -375,7 +375,7 @@
         "description": "The following example shows how to define a connection profile for an AWS job"
     },
     "Azure Basic": {
-        "prefix": "jacConnectionProfileAzureBasic",
+        "prefix": "jac-Connection-Profile-Azure-Basic",
         "body": [
             "cpazure = ConnectionProfileAzure('AZURE_CONNECTION',",
             "                                 centralized=True,",

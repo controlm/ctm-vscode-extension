@@ -1,0 +1,7 @@
+{
+    "AI AWS ECS CLI": {
+        "prefix": "jac.connection.profile.ai.AWS.ECS.Run.Task.CLI",
+        "body": "{\"Type\": \"ConnectionProfile:ApplicationIntegrator:AI ECS RunTask CLI\",\"Description\": \"\",\"Centralized\": true,\"AI-AWS Region\": \"us-west-1\",\"AI-AWS Command\": \"aws\", \"AI-jq Command\": \"jq\"}",
+        "description": "AI Connection Profile for ECS RunTask CLI"
+    }
+}

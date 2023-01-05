@@ -1,6 +1,6 @@
 {
     "Command Job": {
-        "prefix": "jacJobCommand",
+        "prefix": "jac-Job-Command",
         "body": [
             "job = JobCommand('JobCommandSample',",
             "                 command='mycommand',",
@@ -12,7 +12,7 @@
         "description": "The following example shows how to use the Job:Command to run operating system commands."
     },
     "Script Job": {
-        "prefix": "jacJobScript",
+        "prefix": "jac-Job-Script",
         "body": [
             "job = JobScript('JobScriptSame',",
             "                file_name='task.sh',",
@@ -24,16 +24,14 @@
         "description": "The following example shows how to use Job:Script to run a script from a specified script file."
     },
     "Embedded Script Job": {
-        "prefix": "jacJobScriptEmbedded",
+        "prefix": "jac-Job-Script-Embedded",
         "body": [
-            "job = JobEmbeddedScript('JobEmbeddedScriptSample',",
-            "                        file_name='filename.sh',",
-            "                        script=r'#!/bin/bash\\necho \"Hello\"\\necho \"Bye\"'),"
+            "job = JobEmbeddedScript('JobEmbeddedScriptSample',", "                        file_name='filename.sh',", "                        script=r'#!/bin/bash\\necho \"Hello\"\\necho \"Bye\"'),"
         ],
         "description": "Inserts an Embedded Script job"
     },
     "File Transfer Job Local": {
-        "prefix": "jacJobFileTransferLocal",
+        "prefix": "jac-Job-FileTransferLocal",
         "body": [
             "job = JobFileTransfer('JobFileTransferSample',",
             "                      connection_profile_src='CP1', connection_profile_dest='CP2',",
@@ -51,16 +49,14 @@
         "description": "The following example shows a Job:FileTransfer for a file transfer from a local filesystem to an SFTP server"
     },
     "File Transfer Job S3 to Local": {
-        "prefix": "jacJobFileTransferS3Local",
+        "prefix": "jac-Job-File-Transfer-S3-Local",
         "body": [
-            "job = JobFileTransfer('TransferS3ToLocal',",
-            "                      connection_profile_src='amazonCP', connection_profile_dest='localcp',",
-            "                      s3_bucket_name='bucket')"
+            "job = JobFileTransfer('TransferS3ToLocal',", "                      connection_profile_src='amazonCP', connection_profile_dest='localcp',", "                      s3_bucket_name='bucket')"
         ],
         "description": "The following example shows a Job:FileTransfer for a file transfer from a S3 filesystem to local folder"
     },
     "File Watcher Create Job": {
-        "prefix": "jacJobFileWatcherCreate",
+        "prefix": "jac-Job-File-Watcher-Create",
         "body": [
             "job = JobFileWatcherCreate('JobFileWatcherCreateSample',",
             "                           path='C:\\\\path*.txt',",
@@ -78,7 +74,7 @@
         "description": "A File Watcher job enables you to detect the successful completion of a file transfer activity that creates or deletes a file."
     },
     "File Watcher Delte Job": {
-        "prefix": "jacJobFileWatcherDelete",
+        "prefix": "jac-Job-File-Watcher-Delete",
         "body": [
             "job = JobFileWatcherDelete('JobFileWatcherDeleteSample',",
             "                           path='C:\\\\path*.txt',",
@@ -91,7 +87,7 @@
         "description": "A File Watcher job enables you to detect the successful completion of a file transfer activity that creates or deletes a file."
     },
     "Database Embedded Query": {
-        "prefix": "jacJobDatabaseEmbeddedQuery",
+        "prefix": "jac-Job-Database-Embedded-Query",
         "body": [
             "job = JobDatabaseEmbeddedQuery(",
             "    'JobEmbeddedQuerySample',",
@@ -108,7 +104,7 @@
         "description": "The following example shows how to create a database job that runs an embedded query."
     },
     "Database SQL Script Basic": {
-        "prefix": "jacJobDatabaseSQLScriptBasic",
+        "prefix": "jac-Job-Database-SQL-Script-Basic",
         "body": [
             "job = JobDatabaseSQLScript('JobDatabaseSQLScriptSample',",
             "                           connection_profile='CPDB',",
@@ -119,7 +115,7 @@
         "description": "The following example shows how to create a database job that runs a SQL script from a file system."
     },
     "Database Stored Procedure": {
-        "prefix": "jacJobDatabaseStoredProcedure",
+        "prefix": "jac-Job-Database-Stored-Procedure",
         "body": [
             "job = JobDatabaseStoredProcedure('JobDatabaseStoredProcedureSample',",
             "                                 connection_profile='CPDB',",
@@ -130,7 +126,7 @@
         "description": "The following example shows how to create a database job that runs a program that is stored on the database."
     },
     "Database MSSQL Agent Job": {
-        "prefix": "jacJobDatabaseMSSQLAgentJob",
+        "prefix": "jac-Job-Database-MSSQL-Agent-Job",
         "body": [
             "job = JobDatabaseMSSQLAgentJob('JobDatabaseMSSQLAgentJobSample',",
             "                               job_name='get_version',",
@@ -141,7 +137,7 @@
         "description": "The following example shows how to create an MSSQL Agent job, for management of a job defined in the SQL server."
     },
     "Database MSSQL SSIS": {
-        "prefix": "jacJobDatabaseMSSQLSSIS",
+        "prefix": "jac-Job-Database-MSSQL-SSIS",
         "body": [
             "job = JobDatabaseMSSQL_SSIS('JobDatabaseMSSQL_SSISSample',",
             "                           connection_profile='CPDB',",
@@ -164,17 +160,14 @@
         "description": "The following example shows how to create SSIS Package jobs for execution of SQL Server Integration Services (SSIS) packages"
     },
     "Hadoop Spark Python Basic": {
-        "prefix": "jacJobHadoopSparkPythonBasic",
+        "prefix": "jac-Job-Hadoop-Spark-Python-Basic",
         "body": [
-            "job = JobHadoopSparkPython('JobHadoopSparkPythonSample',",
-            "                           connection_profile='CP',",
-            "                           spark_script='/home/process.py')",
-            ""
+            "job = JobHadoopSparkPython('JobHadoopSparkPythonSample',", "                           connection_profile='CP',", "                           spark_script='/home/process.py')", ""
         ],
         "description": "The following example shows how to use Job:Hadoop:Spark:Python to run a Spark Python program."
     },
     "Hadoop Spark Python Advanced": {
-        "prefix": "jacJobHadoopSparkPythonAdvanced",
+        "prefix": "jac-Job-Hadoop-Spark-Python-Advanced",
         "body": [
             "job = JobHadoopSparkPython('JobHadoopSparkPythonSample',",
             "                           connection_profile='CP',",
@@ -191,7 +184,7 @@
         "description": "The following example shows how to use Job:Hadoop:Spark:Python to run a Spark Python program."
     },
     "Hadoop Spark Scala Java Basic": {
-        "prefix": "jacJobHadoopSparkScalaJavaBasic",
+        "prefix": "jac-Job-Hadoop-Spark-Scala-Java-Basic",
         "body": [
             "job = JobHadoopSparkScalaJava('JobHadoopSparkScalaJavaSample',",
             "                              connection_profile='CP',",
@@ -202,17 +195,14 @@
         "description": "The following example shows how to use Job:Hadoop:Spark:ScalaJava to run a Spark Java or Scala program."
     },
     "Hadoop Pig Basic": {
-        "prefix": "jacJobHadoopPigBasic",
+        "prefix": "jac-Job-Hadoop-Pig-Basic",
         "body": [
-            "job = JobHadoopPig('JobHadoopPigSample',",
-            "                   connection_profile='CP',",
-            "                   pig_script='/home/user/script.pg'",
-            "                   )"
+            "job = JobHadoopPig('JobHadoopPigSample',", "                   connection_profile='CP',", "                   pig_script='/home/user/script.pg'", "                   )"
         ],
         "description": "The following example shows how to use Job:Hadoop:Pig to run a Pig script."
     },
     "Hadoop Sqoop Basic": {
-        "prefix": "jacJobHadoopSqoopBasic",
+        "prefix": "jac-Job-Hadoop-Sqoop-Basic",
         "body": [
             "job = JobHadoopSqoop('JobHadoopSqoopSample',",
             "                     connection_profile='CP',",
@@ -226,7 +216,7 @@
         "description": "The following example shows how to use Job:Hadoop:Sqoop to run a Sqoop job."
     },
     "Hadoop Hive Basic": {
-        "prefix": "jacJobHadoopHiveBasic",
+        "prefix": "jac-Job-Hadoop-Hive-Basic",
         "body": [
             "job = JobHadoopHive('JobHadoopHiveSample',",
             "                    connection_profile='CP',",
@@ -238,7 +228,7 @@
         "description": "The following example shows how to use Job:Hadoop:Hive to run a Hive beeline job."
     },
     "Hadoop Distributed Copy Basic": {
-        "prefix": "jacJobHadoopDistCpBasic",
+        "prefix": "jac-Job-Hadoop-Dist-Cp-Basic",
         "body": [
             "job = JobHadoopDistCp('JobHadoopDistCpSample',",
             "                      connection_profile='CP',",
@@ -250,7 +240,7 @@
         "description": "The following example shows how to use Job:Hadoop:DistCp to run a DistCp job.  DistCp (distributed copy) is a tool used for large inter/intra-cluster copying."
     },
     "Hadoop HDFS Commands": {
-        "prefix": "jacJobHadoopHDFSCommands",
+        "prefix": "jac-Job-Hadoop-HDFS-Commands",
         "body": [
             "job = JobHadoopHDFSCommands('JobHadoopHDFSCommandsSample',",
             "                            connection_profile='CP',",
@@ -261,7 +251,7 @@
         "description": "The following example shows how to use Job:Hadoop:HDFSCommands to run a job that executes one or more HDFS commands."
     },
     "Hadoop HDFS File Watcher": {
-        "prefix": "jacJobHadoopHDFSFileWatcher",
+        "prefix": "jac-Job-Hadoop-HDFS-File-Watcher",
         "body": [
             "job = JobHadoopHDFSFileWatcher('JobHadoopHDFSFileWatcherSample',",
             "                               connection_profile='CP',",
@@ -273,7 +263,7 @@
         "description": "The following example shows how to use Job:Hadoop:HDFSFileWatcher to run a job that waits for HDFS file arrival."
     },
     "Hadoop Oozie": {
-        "prefix": "jacJobHadoopOozie",
+        "prefix": "jac-Job-Hadoop-Oozie",
         "body": [
             "job = JobHadoopOozie('JobHadoopOozieSample',",
             "                     connection_profile='CP',",
@@ -286,7 +276,7 @@
         "description": "The following example shows how to use Job:Hadoop:Oozie to run a job that submits an Oozie workflow."
     },
     "Hadoop MapReduce Basic": {
-        "prefix": "jacJobHadoopMapReduceBasic",
+        "prefix": "jac-Job-Hadoop-Map-Reduce-Basic",
         "body": [
             "job = JobHadoopMapReduce('JobHadoopMapReduceSample',",
             "                         connection_profile='CP',",
@@ -300,7 +290,7 @@
         "description": "The following example shows how to use Job:Hadoop:MapReduce to execute a Hadoop MapReduce job."
     },
     "Hadoop MapReduce Streaming": {
-        "prefix": "jacJobHadoopMapReduceStreaming",
+        "prefix": "jac-Job-Hadoop-Map-Reduce-Streaming",
         "body": [
             "job = JobHadoopMapredStreaming('JobHadoopMapredStreamingSample',",
             "                               connection_profile='CP',",
@@ -317,7 +307,7 @@
         "description": "The following example shows how to use Job:Hadoop:MapredStreaming to execute a Hadoop MapReduce Streaming job."
     },
     "Hadoop Tajo InputFile": {
-        "prefix": "jacJobHadoopTajoInputFile",
+        "prefix": "jac-Job-Hadoop-Tajo-Input-File",
         "body": [
             "job = JobHadoopTajoInputFile('JobHadoopTajoInputFileSample',",
             "                             connection_profile='CP',",
@@ -331,17 +321,14 @@
         "description": "The following example shows how to execute a Hadoop Tajo job based on an input file."
     },
     "Hadoop Tajo Query": {
-        "prefix": "jacJobHadoopTajoQuery",
+        "prefix": "jac-Job-Hadoop-Tajo-Query",
         "body": [
-            "job = JobHadoopTajoQuery('JobHadoopTajoQuerySample',",
-            "                         connection_profile='CP',",
-            "                         open_query='SELECT %%firstParamName AS VAR1 \\\\n FROM DUMMY \\\\n ORDER BY \\\\t VAR1 DESC')",
-            ""
+            "job = JobHadoopTajoQuery('JobHadoopTajoQuerySample',", "                         connection_profile='CP',", "                         open_query='SELECT %%firstParamName AS VAR1 \\\\n FROM DUMMY \\\\n ORDER BY \\\\t VAR1 DESC')", ""
         ],
         "description": "The following example shows how to execute a Hadoop Tajo job based on a query."
     },
     "PeopleSoft": {
-        "prefix": "jacJobPeopleSoft",
+        "prefix": "jac-Job-PeopleSoft",
         "body": [
             "job = JobPeopleSoft('JobPeopleSoftSample',",
             "                    connection_profile='CP_PS',",
@@ -357,7 +344,7 @@
         "description": "The following example shows the JSON code used to define a PeopleSoft job."
     },
     "Informatica": {
-        "prefix": "jacJobInformatica",
+        "prefix": "jac-Job-Informatica",
         "body": [
             "job = JobInformatica('JobInformaticaSample',",
             "               connection_profile='CP_INF',",
@@ -373,7 +360,7 @@
         "description": "The following example shows the JSON code used to define an Informatica job."
     },
     "AWS Lambda": {
-        "prefix": "jacJobAWSLambda",
+        "prefix": "jac-Job-AWS-Lambda",
         "body": [
             "job = JobAWSLambda('JobAWSLambdaSample',",
             "                   connection_profile='CPAWS',",
@@ -387,7 +374,7 @@
         "description": "The following example shows how to define a job that executes an AWS Lambda service on an AWS server."
     },
     "AWS Step Function": {
-        "prefix": "jacJobAWSStepFunction",
+        "prefix": "jac-Job-AWS-Step-Function",
         "body": [
             "job = JobAWSStepFunction('JobAWSStepFunctionSample',",
             "                         connection_profile='CPAWS',",
@@ -400,7 +387,7 @@
         "description": "The following example shows how to define a job that executes an AWS Step Function service on an AWS server."
     },
     "AWS Batch": {
-        "prefix": "jacJobAWSBatch",
+        "prefix": "jac-Job-AWS-Batch",
         "body": [
             "job = JobAWSBatch('JobAWSBatchSample',",
             "                  connection_profile='CPAWS',",
@@ -424,7 +411,7 @@
         "description": "The following example shows how to define a job that executes an AWS Batch service on an AWS server."
     },
     "Azure Function": {
-        "prefix": "jacJobAzureFunction",
+        "prefix": "jac-Job-Azure-Function",
         "body": [
             "job = JobAzureFunction('JobAzureFunctionSample',",
             "                       connection_profile='CPAZURE',",
@@ -439,7 +426,7 @@
         "description": "The following example shows how to define a job that executes an Azure function service."
     },
     "Azure Logic Apps": {
-        "prefix": "jacJobAzureLogicApps",
+        "prefix": "jac-Job-Azure-Logic-Apps",
         "body": [
             "job = JobAzureLogicApps('JobAzureLogicAppsSample',",
             "                        connection_profile='CPAZURE',",
@@ -450,7 +437,7 @@
         "description": "The following example shows how to define a job that executes an Azure logic App service."
     },
     "Azure Batch Account": {
-        "prefix": "jacJobAzureBatchAccount",
+        "prefix": "jac-Job-Azure-Batch-Account",
         "body": [
             "job = JobAzureBatchAccount('JobAzureBatchAccountSample',",
             "                           connection_profile='CPAZURE',",
@@ -469,7 +456,7 @@
         "description": "The following example shows how to define a job that executes an Azure Batch Account service."
     },
     "WebServices": {
-        "prefix": "jacJobWebServices",
+        "prefix": "jac-Job-WebServices",
         "body": [
             "job = JobWebServices('JobWebServicesSample',",
             "                     connection_profile='CP_WS',",
@@ -524,7 +511,7 @@
         "description": "The following example presents a Web Services job that receives input for a calculator service and outputs the result of a simple calculation"
     },
     "SLA Management": {
-        "prefix": "jacJobSLAManagement",
+        "prefix": "jac-Job-SLA-Management",
         "body": [
             "job = JobSLAManagement('JobSLAManagementSample',",
             "                       service_name='SLA-service',",

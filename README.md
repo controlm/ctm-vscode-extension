@@ -149,17 +149,17 @@ Create a new *.json or *.py file. Enter "jac." to utilize provided code snippets
 #### **Job Types - Python**
 | Category | Prefix  | 
 | -----------    | ------------------------ |
-| AWS | jacJob***AWS*** |
-| Azure | jacJob***Azure*** |
-| Command Job | jacJob***Command*** |
-| Control-M Folders | jacJob***Folder*** |
-| Database Jobs | jacJob***Database*** |
-| File Transfer Jobs | jacJob***File*** |
-| Hadoop Jobs | jacJob***Hadoop*** |
-| Informatica | jacJob***Informatica*** |
-| PeopleSoft | jacJob***PeopleSoft*** |
-| Script Jobs | jacJob***Script*** |
-| WebServices | jacJob***WebServices*** |
+| AWS | jac-Job-***AWS*** |
+| Azure | jac-Job-***Azure*** |
+| Command Job | jac-Job-***Command*** |
+| Control-M Folders | jac-Job-***Folder*** |
+| Database Jobs | jac-Job-***Database*** |
+| File Transfer Jobs | jac-Job-***File*** |
+| Hadoop Jobs | jac-Job-***Hadoop*** |
+| Informatica | jac-Job-***Informatica*** |
+| PeopleSoft | jac-Job-***PeopleSoft*** |
+| Script Jobs | jac-Job-***Script*** |
+| WebServices | jac-Job-***WebServices*** |
 
 <br/>
 
@@ -192,15 +192,15 @@ Create a new *.json or *.py file. Enter "jac." to utilize provided code snippets
 #### **Connection Profiles - Python**
 | Category | Prefix  | 
 | -----------    | ------------------------ |
-| Apache | jacConnectionProfile***Apache***.* |
-| AWS | jacConnectionProfile***AWS***.* |
-| Azure | jacConnectionProfile***Azure***.* |
-| Database | jacConnectionProfile***Database***.* |
-| File Transfer | jacConnectionProfile***FileTransfer***.* |
-| Hadoop | jacConnectionProfile***Hadoop***.* |
-| Informatica | jacConnectionProfile***Informatica***.* |
-| SAP | jacConnectionProfile***SAP***.* |
-| WebServices | jacConnectionProfile***WebServices***.* |
+| Apache | jac-Connection-Profile-***Apache***.* |
+| AWS | jac-Connection-Profile-***AWS***.* |
+| Azure | jac-Connection-Profile-***Azure***.* |
+| Database | jac-Connection-Profile-***Database***.* |
+| File Transfer | jac-Connection-Profile-***FileTransfer***.* |
+| Hadoop | jac-Connection-Profile-***Hadoop***.* |
+| Informatica | jac-Connection-Profile-***Informatica***.* |
+| SAP | jac-Connection-Profile-***SAP***.* |
+| WebServices | jac-Connection-Profile-***WebServices***.* |
 
 <br/>
 

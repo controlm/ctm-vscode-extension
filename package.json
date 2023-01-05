@@ -2,7 +2,7 @@
     "name": "jobs-as-code",
     "displayName": "Jobs-As-Code Werkzeugkiste for Control-M",
     "description": "All snippets and tools you need for Control-M Workflow development",
-    "version": "0.3.3",
+    "version": "0.3.5",
     "license": "BSD-3-Clause",
     "build": "beta",
     "repository": {
@@ -99,6 +99,14 @@
                 "path": "./snippets/ctm.json.demo.ehr.code-snippets"
             },
             {
+                "language": "json",
+                "path": "./snippets/ctm.json.connection.profiles.aws.ecs.code-snippets"
+            },
+            {
+                "language": "json",
+                "path": "./snippets/ctm.json.job.types.aws.ecs.code-snippets"
+            },
+            {
                 "language": "python",
                 "path": "./snippets/ctm.python.job.types.code-snippets"
             },
@@ -109,6 +117,10 @@
             {
                 "language": "python",
                 "path": "./snippets/ctm.python.connection.profiles.code-snippets"
+            },
+            {
+                "language": "python",
+                "path": "./snippets/ctm.python.job.aws.ecs.code-snippets"
             }
         ],
         "submenus": [
