@@ -53,15 +53,15 @@ Control-M Automation API is a set of programmatic interfaces that give developer
 
 <div style="width: 20%; height: 20%">
   
-  [![CTM AAPI Introduction Video](https://ctm-git.trybmc.com/community/vscode-ctm/-/raw/main/images/ctm.api.getting.started.video.bumper.png)](https://youtu.be/7QAuMDym9cw "Click to watch")
+  [![CTM AAPI Introduction Video](https://raw.githubusercontent.com/controlm/ctm-vscode-extension/main/images/ctm.api.getting.started.video.bumper.png)](https://youtu.be/7QAuMDym9cw "Click to watch")
   
 </div>
 
 To manually install the CLI, ensure that the platform supports the installation of ***Node.js*** version 4.x or later and ***Java*** version 8 or later. Installation instructions for the CLI are provided separately for each of the following platforms:
 
-- [Windows](https://docs.bmc.com/docs/automation-api/monthly/installation-1064010696.html#Installation-windows)
-- [Linux](https://docs.bmc.com/docs/automation-api/monthly/installation-1064010696.html#Installation-Linux)
-- [macOS](https://docs.bmc.com/docs/automation-api/monthly/installation-1064010696.html#Installation-Mac)
+- [Windows](https://docs.bmc.com/docs/automation-api/9021/installation-1123726012.html#Installation-windowsCLIinstallationforWindows)
+- [Linux](https://docs.bmc.com/docs/automation-api/9021/installation-1123726012.html#Installation-LinuxCLIinstallationforLinuxorUNIX)
+- [macOS](https://docs.bmc.com/docs/automation-api/9021/installation-1123726012.html#Installation-MacCLIinstallationformacOS)
 
 
 In general these are the two steps: ***download*** **ctm-cli.tgz**, then run ***npm install***. Example:
@@ -106,18 +106,18 @@ The Control-M Automation API allows you to automate and work interactively with 
 
 | Name           | description              | 
 | -----------    | ------------------------ |
-| [archive](https://docs.bmc.com/docs/automation-api/monthly/archive-service-1064010768.html) | The Archive service enables you to search through job data archived in the Workload Archiving server by the Control-M Workload Archiving add-on, as well as to obtain job outputs and job logs for individual jobs. Not supported in Control-M SaaS | 
+| [archive](https://docs.bmc.com/docs/automation-api/9021/archive-service-1123726087.html) | The Archive service enables you to search through job data archived in the Workload Archiving server by the Control-M Workload Archiving add-on, as well as to obtain job outputs and job logs for individual jobs. Not supported in Control-M SaaS | 
 | authentication | Creates and manages authentication tokens | 
-| [build](https://docs.bmc.com/docs/automation-api/monthly/build-service-1064010744.html) | The build service allows you to compile definitions of jobs, folders, or calendars and verify that they are valid for your Control-M environment. Control-M validation includes basic Control-M rules such as length of fields, allowed characters, and mandatory fields. Build will also check that the JSON is valid. If Control-M Change Manager is part of your solution, definitions will be evaluated against the relevant site standard. build can receive definition files in .json format or packages of multiple definition files in .zip or .tar.gz format. | 
-| [config](https://docs.bmc.com/docs/automation-api/monthly/config-service-1064010753.html) | Using the Config service, you can access, update, and add configuration data for the major components of the Control-M environment. | 
-| [deploy](https://docs.bmc.com/docs/automation-api/monthly/deploy-service-1064010746.html) | The deploy service allows you to transfer job and configuration definitions to Control-M. | 
+| [build](https://docs.bmc.com/docs/automation-api/9021/build-service-1123726062.html) | The build service allows you to compile definitions of jobs, folders, or calendars and verify that they are valid for your Control-M environment. Control-M validation includes basic Control-M rules such as length of fields, allowed characters, and mandatory fields. Build will also check that the JSON is valid. If Control-M Change Manager is part of your solution, definitions will be evaluated against the relevant site standard. build can receive definition files in .json format or packages of multiple definition files in .zip or .tar.gz format. | 
+| [config](https://docs.bmc.com/docs/automation-api/9021/config-service-1123726072.html) | Using the Config service, you can access, update, and add configuration data for the major components of the Control-M environment. | 
+| [deploy](https://docs.bmc.com/docs/automation-api/9021/deploy-service-1123726064.html) | The deploy service allows you to transfer job and configuration definitions to Control-M. | 
 | documentation  | Get documentation | 
-| [environment](https://docs.bmc.com/docs/automation-api/monthly/environment-service-1064010769.html) | The Environment service enables you to manage environments, including defining and selecting the Control-M environment to use. | 
-| [package](https://docs.bmc.com/docs/automation-api/monthly/package-service-1064010751.html) | Package a directory of definition files into a deployable archive | 
-| [provision](https://docs.bmc.com/docs/automation-api/monthly/provision-service-1064010762.html) | For Control-M to run and monitor jobs on your application host, a Control-M/Server and Control-M/Agent should be installed. The Provision service allows you access to the full cycle of the following setup processes for agents and servers. | 
-| [reporting](https://docs.bmc.com/docs/automation-api/monthly/reporting-service-1064010765.html) | The Reporting service enables you to generate reports that were set up through Control-M Reports. You can generate reports either synchronously or asynchronously. | 
-| [run](https://docs.bmc.com/docs/automation-api/monthly/run-service-1064010748.html) | The Run service enables you to run jobs and track their status, as well as manage several other types of objects used by jobs. | 
-| [session]() | The Session service allows you to log in and log out of Control-M and receive a token that can be reused in subsequent requests. | 
+| [environment](https://docs.bmc.com/docs/automation-api/9021/environment-service-1123726088.html) | The Environment service enables you to manage environments, including defining and selecting the Control-M environment to use. | 
+| [package](https://docs.bmc.com/docs/automation-api/9021/package-service-1123726070.html) | Package a directory of definition files into a deployable archive | 
+| [provision](https://docs.bmc.com/docs/automation-api/9021/provision-service-1123726081.html) | For Control-M to run and monitor jobs on your application host, a Control-M/Server and Control-M/Agent should be installed. The Provision service allows you access to the full cycle of the following setup processes for agents and servers. | 
+| [reporting](https://docs.bmc.com/docs/automation-api/9021/reporting-service-1123726084.html) | The Reporting service enables you to generate reports that were set up through Control-M Reports. You can generate reports either synchronously or asynchronously. | 
+| [run](https://docs.bmc.com/docs/automation-api/9021/run-service-1123726067.html) | The Run service enables you to run jobs and track their status, as well as manage several other types of objects used by jobs. | 
+| [session](https://docs.bmc.com/docs/automation-api/9021/session-service-1123726090.html) | The Session service allows you to log in and log out of Control-M and receive a token that can be reused in subsequent requests. | 
 | usage          | Run the usage service in order to get a usage report. Supported only in Control-M SaaS | 
 
 <br/>
@@ -125,7 +125,7 @@ The Control-M Automation API allows you to automate and work interactively with 
 
 ## Usage / Tutorials
 
-To get you started, BMC provides you with a group of tutorials to introduce you to common best practices of using Control-M Automation API. See [Tutorials](https://docs.bmc.com/docs/automation-api/monthly/tutorials-1064010699.html).
+To get you started, BMC provides you with a group of tutorials to introduce you to common best practices of using Control-M Automation API. See [Tutorials](https://docs.bmc.com/docs/automation-api/9021/tutorials-1123726015.html).
 
 Create a new *.json or *.py file. Enter "jac." to utilize provided code snippets.
 **Right-Mouse-Click* to invoke the Visual Studio Code conext menus to activate the Control-M AAPI commands.
@@ -248,7 +248,7 @@ topic * on roadmap
 
 ## License
 
-Please see the [BMC License](https://ctm-git.trybmc.com/community/vscode-ctm/-/blob/main/LICENSE.txt) file for details on the project.
+Please see the [BMC License](https://raw.githubusercontent.com/controlm/ctm-vscode-extension/main/LICENSE) file for details on the project.
 The licenses for this project do not grant you rights to use any BMC Software names, logos, or trademarks. BMC Software and any contributors reserve all other rights, whether under their respective copyrights, patents, or trademarks, whether by implication, estoppel or otherwise.
 
 <br/>
