@@ -1,5 +1,5 @@
 import { ExtensionContext } from 'vscode';
-import { EXTENSION_NAME, FILE_CACHE } from '../utils/constants';
+import { EXTENSION_NAME, FILE_CACHE } from '../utils/Constants';
 import { unzipJsonFile } from '../utils/unzipJsonFile';
 
 interface CacheObject { [version: string]: { [path: string]: any } }

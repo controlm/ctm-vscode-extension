@@ -2,12 +2,12 @@
     "name": "jobs-as-code",
     "displayName": "Jobs-As-Code Werkzeugkiste for Control-M",
     "description": "All snippets and tools you need for Control-M Workflow development",
-    "version": "0.3.1",
+    "version": "0.3.2",
     "license": "BSD-3-Clause",
     "build": "alpha",
     "repository": {
         "type": "git",
-        "url": "https://ctm-git.trybmc.com/community/vscode-ctm"
+        "url": "https://github.com/controlm/ctm-vscode-extension"
     },
     "author": {
         "name": "BMC Software",
@@ -18,7 +18,7 @@
         "url": "https://www.jobsascode.io/"
     },
     "bugs": {
-        "url": "https://ctm-git.trybmc.com/community/vscode-ctm",
+        "url": "https://github.com/controlm/ctm-vscode-extension",
         "email": "orchestrator@bmc.com"
     },
     "publisher": "bmcsoftware",
@@ -43,7 +43,7 @@
         "snippet",
         "scm"
     ],
-    "homepage": "https://ctm-git.trybmc.com/community/vscode-ctm",
+    "homepage": "https://github.com/controlm/ctm-vscode-extension",
     "icon": "resources/icon.128.png",
     "galleryBanner": {
         "color": "#ACD1EC",
@@ -469,29 +469,6 @@
                         "type": "string",
                         "default": "bdc",
                         "markdownDescription": "Control-M AAPI `environment name`, which was set with `ctm env` aapi command.",
-                        "tags": [
-                            "jac",
-                            "ctm",
-                            "aapi"
-                        ]
-                    },
-                    "CTM.Automation.API.endpoint.server": {
-                        "type": "string",
-                        "default": "example.host.name.domain",
-                        "markdownDescription": "Control-M Enterprise Manager with Automation API. Enter `host name` of Enterprise Manager",
-                        "tags": [
-                            "jac",
-                            "ctm",
-                            "aapi"
-                        ]
-                    },
-                    "CTM.Automation.API.endpoint.port": {
-                        "type": [
-                            "number",
-                            "null"
-                        ],
-                        "default": 8443,
-                        "markdownDescription": "Control-M Enterprise Manager with Automation API. Enter `HTTPS port`.",
                         "tags": [
                             "jac",
                             "ctm",
