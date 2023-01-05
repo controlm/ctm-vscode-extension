@@ -1,0 +1,257 @@
+{
+    "Hadoop Basic": {
+        "prefix": "jac.connection.profile.Hadoop.Basic",
+        "body": "{\"HADOOP_CONNECTION_PROFILE\":{\"Type\":\"ConnectionProfile:Hadoop\",\"TargetAgent\":\"edgenode\",\"TargetCTM\":\"CTMHost\"}}",
+        "description": "The following example shows a connection profile that defines access to a Hadoop."
+    },
+    "Hadoop Advanced": {
+        "prefix": "jac.connection.profile.Hadoop.Advanced",
+        "body": "{\"HADOOP_CONNECTION_PROFILE\":{\"Type\":\"ConnectionProfile:Hadoop\",\"TargetAgent\":\"edgenode\",\"TargetCTM\":\"CTMHost\",\"RunAs\":\"\",\"KeyTabPath\":\"\",\"Centralized\":true}}",
+        "description": "The following example shows a connection profile that defines access to a Hadoop."
+    },
+    "Apache Spark": {
+        "prefix": "jac.connection.profile.Apache.Spark",
+        "body": "{\"SPARK_CONNECTION_PROFILE\":{\"Type\":\"ConnectionProfile:Hadoop\",\"TargetAgent\":\"docker-hadoop5\",\"Spark\":{\"CustomPath\":\"/home\"}}}",
+        "description": "The following example shows a connection profile that defines access to a Apache Spark server."
+    },
+    "Apache Oozie": {
+        "prefix": "jac.connection.profile.Apache.Oozie",
+        "body": "{\"OOZIE_CONNECTION_PROFILE\":{\"Type\":\"ConnectionProfile:Hadoop\",\"TargetAgent\":\"hdp-ubuntu\",\"Centralized\":false,\"Oozie\":{\"SslEnabled\":false,\"Host\":\"hdp-centos\",\"Port\":\"11000\",\"ExtractionRules\":[{\"RuleName\":\"rule_name1\",\"WorkFlowName\":\"work_flow_name1\",\"WorkFlowUserName\":\"work_flow_user_name1\",\"FolderName\":\"folder_name1\",\"JobName\":\"job_name1\"},{\"RuleName\":\"rule_name2\",\"WorkFlowName\":\"work_flow_name2\",\"WorkFlowUserName\":\"work_flow_user_name2\",\"FolderName\":\"folder_name2\",\"JobName\":\"job_name2\"}]}}}",
+        "description": "The following example shows a connection profile that defines access to a Apache Oozie server."
+    },
+    "Apache Sqoop": {
+        "prefix": "jac.connection.profile.Apache.Sqoop",
+        "body": "{\"SQOOP_CONNECTION_PROFILE\":{\"Type\":\"ConnectionProfile:Hadoop\",\"TargetAgent\":\"edgenode\",\"TargetCTM\":\"CTMHost\",\"Centralized\":false,\"Sqoop\":{\"User\":\"username\",\"Password\":\"userpassword\",\"ConnectionString\":\"jdbc:mysql://mysql.server/database\",\"DriverClass\":\"com.mysql.jdbc.Driver\"}}}",
+        "description": "The following example shows a connection profile that defines access to a Apache Sqoop server."
+    },
+    "Apache Tajo": {
+        "prefix": "jac.connection.profile.Apache.Tajo",
+        "body": "{\"TAJO_CP\":{\"Type\":\"ConnectionProfile:Hadoop\",\"TargetAgent\":\"edgenode\",\"Tajo\":{\"BinaryPath\":\"$TAJO_HOME/bin/\",\"DatabaseName\":\"myTajoDB\",\"MasterServerName\":\"myTajoServer\",\"MasterServerPort\":\"26001\"}}}",
+        "description": "The following example shows a connection profile that defines access to a Apache Tajo server."
+    },
+    "Apache Hive Basic": {
+        "prefix": "jac.connection.profile.Apache.Hive.Basic",
+        "body": "{\"HIVE_CONNECTION_PROFILE\":{\"Type\":\"ConnectionProfile:Hadoop\",\"TargetAgent\":\"edgenode\",\"TargetCTM\":\"CTMHost\",\"Hive\":{\"Host\":\"hive_host_name\",\"Port\":\"10000\",\"DatabaseName\":\"hive_database\"}}}",
+        "description": "The following example shows a connection profile that defines access to a Apache Hive server."
+    },
+    "Apache Hive Advanced": {
+        "prefix": "jac.connection.profile.Apache.Hive.Advanced",
+        "body": "{\"HIVE_CONNECTION_PROFILE1\":{\"Type\":\"ConnectionProfile:Hadoop\",\"TargetAgent\":\"edgenode\",\"TargetCTM\":\"CTMHost\",\"Centralized\":true,\"Hive\":{\"Host\":\"hive_host_name\",\"Port\":\"10000\",\"DatabaseName\":\"hive_database\",\"User\":\"user_name\",\"Password\":\"user_password\",\"Principal\":\"Server_Principal_of_HiveServer2@Realm\"}}}",
+        "description": "The following example shows a connection profile that defines access to a Apache Hive server."
+    },
+    "Apache": {
+        "prefix": "jac.connection.profile.Apache.abcd",
+        "body": "",
+        "description": "The following example shows a connection profile that defines access to a Apache Spark server."
+    },
+    "File Transfer FTP Basic": {
+        "prefix": "jac.connection.profile.FileTransfer.FTP.Basic",
+        "body": "{\"FTPConn\":{\"Type\":\"ConnectionProfile:FileTransfer:FTP\",\"TargetAgent\":\"AgentHost\",\"TargetCTM\":\"CTMHost\",\"HostName\":\"FTPServer\",\"User\":\"FTPUser\",\"Password\":\"ftp password\"}}",
+        "description": "The following examples show a connection profile for a file transfer to a single endpoint using the FTP communication protocol."
+    },
+    "File Transfer FTP Advanced": {
+        "prefix": "jac.connection.profile.FileTransfer.FTP.Advanced",
+        "body": "{\"FTPConn\":{\"Type\":\"ConnectionProfile:FileTransfer:FTP\",\"TargetAgent\":\"AgentHost\",\"TargetCTM\":\"CTMHost\",\"WorkloadAutomationUsers\":[\"john\",\"bob\"],\"HostName\":\"FTPServer\",\"Port\":\"21\",\"User\":\"FTPUser\",\"Password\":\"ftp password\",\"HomeDirectory\":\"/home/FTPUser\",\"OsType\":\"Unix\",\"Centralized\":false,\"AdditionalParameters\":[{\"Name\":\"param1\",\"Value\":\"1\"},{\"Name\":\"param2\",\"Value\":\"2\"}]}}",
+        "description": "The following examples show a connection profile for a file transfer to a single endpoint using the FTP communication protocol."
+    },
+    "File Transfer SFTP Basic": {
+        "prefix": "jac.connection.profile.FileTransfer.SFTP.Basic",
+        "body": "{\"sFTPconn\":{\"Type\":\"ConnectionProfile:FileTransfer:SFTP\",\"TargetAgent\":\"AgentHost\",\"TargetCTM\":\"CTMHost\",\"HostName\":\"SFTPServer\",\"Port\":\"22\",\"User\":\"SFTPUser\",\"Password\":\"sftp password\"}}",
+        "description": "The following examples show a connection profile for a file transfer to a single endpoint using the SFTP (SSH File Transfer Protocol) communication protocol."
+    },
+    "File Transfer SFTP Advanced": {
+        "prefix": "jac.connection.profile.FileTransfer.SFTP.Advanced",
+        "body": "{\"sFTPconn\":{\"Type\":\"ConnectionProfile:FileTransfer:SFTP\",\"TargetAgent\":\"AgentHost\",\"TargetCTM\":\"CTMHost\",\"HostName\":\"SFTPServer\",\"Port\":\"22\",\"User\":\"SFTPUser\",\"HomeDirectory\":\"/home/SFTPUser\",\"PrivateKeyName\":\"/home/controlm/ctm_agent/ctm/cm/AFT/data/Keys/sFTPkey\",\"Passphrase\":\"passphrase\",\"SSHCompression\":true,\"Centralized\":true,\"AdditionalParameters\":[{\"Name\":\"param1\",\"Value\":\"1\"},{\"Name\":\"param2\",\"Value\":\"2\"}]}}",
+        "description": "The following examples show a connection profile for a file transfer to a single endpoint using the SFTP (SSH File Transfer Protocol) communication protocol."
+    },
+    "File Transfer Local": {
+        "prefix": "jac.connection.profile.FileTransfer.Local",
+        "body": "{\"LocalConn\":{\"Type\":\"ConnectionProfile:FileTransfer:Local\",\"TargetAgent\":\"AgentHost\",\"TargetCTM\":\"CTMHost\",\"User\":\"controlm\",\"Password\":\"local password\",\"Centralized\":true,\"AdditionalParameters\":[{\"Name\":\"param1\",\"Value\":\"1\"},{\"Name\":\"param2\",\"Value\":\"2\"}]}}",
+        "description": "The following example shows a connection profile for a file transfer to a single endpoint on a Local File System."
+    },
+    "File Transfer S3 Amazon": {
+        "prefix": "jac.connection.profile.FileTransfer.S3.Amazon",
+        "body": "{\"testAmazon\":{\"Type\":\"ConnectionProfile:FileTransfer:S3:Amazon\",\"Region\":\"us-west-2\",\"AccessKey\":\"mykey\",\"SecretAccessKey\":\"mysecret\",\"VerifyDestination\":true,\"TargetAgent\":\"sqa\",\"Centralized\":true,\"AdditionalParameters\":[{\"Name\":\"param1\",\"Value\":\"1\"},{\"Name\":\"param2\",\"Value\":\"2\"}]}}",
+        "description": "The following example shows a connection profile for file transfers between a local filesystem and an Amazon S3 storage service."
+    },
+    "File Transfer S3 Compatible": {
+        "prefix": "jac.connection.profile.FileTransfer.S3.Compatible",
+        "body": "{\"testCompatible\":{\"Type\":\"ConnectionProfile:FileTransfer:S3:Compatible\",\"RestEndPoint\":\"api.com\",\"AccessKey\":\"mykey\",\"SecretAccessKey\":\"mysecret\",\"VerifyDestination\":true,\"TargetAgent\":\"sqa\",\"Centralized\":true,\"AdditionalParameters\":[{\"Name\":\"param1\",\"Value\":\"1\"},{\"Name\":\"param2\",\"Value\":\"2\"}]}}",
+        "description": "The following example shows a connection profile for file transfers between a local filesystem and an S3-compatible storage service."
+    },
+    "File Transfer Dual End-Point": {
+        "prefix": "jac.connection.profile.FileTransfer.Dual.End.Point",
+        "body": "{\"DualEpConn\":{\"Type\":\"ConnectionProfile:FileTransfer:DualEndPoint\",\"WorkloadAutomationUsers\":[\"em_user1\"],\"TargetAgent\":\"AgentHost\",\"Centralized\":false,\"src_endpoint\":{\"Type\":\"Endpoint:Src:FTP\",\"User\":\"controlm\",\"Port\":\"10023\",\"HostName\":\"localhost\",\"Password\":\"password\",\"HomeDirectory\":\"/home/controlm/\"},\"dest_endpoint\":{\"Type\":\"Endpoint:Dest:SFTP\",\"User\":\"controlm\",\"Port\":\"10023\",\"HostName\":\"host2\",\"Password\":\"password\",\"HomeDirectory\":\"/home/controlm/\"}}}",
+        "description": "In a dual-endpoint connection profile, you specify connection details for the source host and for the destaination host of the file transfer. Connection details can be based on the FTP, SFTP, or FTPS communication protocols or can be to a local file system."
+    },
+    "File Transfer Group": {
+        "prefix": "jac.connection.profile.FileTransfer.Group",
+        "body": "{\"GROUP_CP\":{\"Type\":\"ConnectionProfile:FileTransfer:Group\",\"TargetAgent\":\"docker_aft_app_centos1\",\"GroupAccounts\":[\"FTPConn\",\"sFTPconn\",\"LocalConn\",\"AS2_Conn_1\"],\"WorkloadAutomationUsers\":[\"john\",\"bob\"]}}",
+        "description": "The following example shows a group connection profile, which enables you to transfer a file from one host to multiple hosts in one transfer. In each group connection profile, you include a variety of previously defined connection profiles for file transfers."
+    },
+    "Database DB2": {
+        "prefix": "jac.connection.profile.Database.DB2",
+        "body": "{\"DB2_CONNECTION_PROFILE\":{\"Type\":\"ConnectionProfile:Database:DB2\",\"TargetCTM\":\"CTMHost\",\"TargetAgent\":\"AgentHost\",\"Host\":\"DB2Host\",\"Port\":\"50000\",\"User\":\"db user\",\"Password\":\"db password\",\"DatabaseName\":\"db2\"}}",
+        "description": "The following example shows how to define a connection profile for DB2"
+    },
+    "Database JDBC Basic": {
+        "prefix": "jac.connection.profile.Database.JDBC.Basic",
+        "body": "{\"JDBC_CONNECTION_PROFILE\":{\"Type\":\"ConnectionProfile:Database:JDBC\",\"User\":\"db user\",\"TargetCTM\":\"CTMHost\",\"Host\":\"PGSQLHost\",\"Driver\":\"PGDRV\",\"Port\":\"5432\",\"TargetAgent\":\"AgentHost\",\"Password\":\"db password\",\"DatabaseName\":\"dbname\"}}",
+        "description": "The following example shows how to define a connection profile using a custom defined database type created using JDBC"
+    },
+    "Database JDBC Driver": {
+        "prefix": "jac.connection.profile.Database.JDBC.Driver",
+        "body": "{\"MyDriver\":{\"Type\":\"Driver:Jdbc:Database\",\"TargetAgent\":\"app-redhat\",\"StringTemplate\":\"jdbc:sqlserver://<HOST>:<PORT>/<DATABASE>\",\"DriverJarsFolder\":\"/home/controlm/ctm/cm/DB/JDBCDrivers/PostgreSQL/9.4/\",\"ClassName\":\"org.postgresql.Driver\",\"LineComment\":\"--\",\"StatementSeparator\":\";\"}}",
+        "description": "You can define a driver to be used by a connection profile. The following example shows the parameters that you use to define a driver."
+    },
+    "Database MSSQL Basic": {
+        "prefix": "jac.connection.profile.Database.MSSQL.Basic",
+        "body": "{\"MSSQL_CONNECTION_PROFILE\":{\"Type\":\"ConnectionProfile:Database:MSSQL\",\"TargetCTM\":\"CTMHost\",\"TargetAgent\":\"AgentHost\",\"Host\":\"MSSQLHost\",\"User\":\"db user\",\"Port\":\"1433\",\"Password\":\"db password\",\"DatabaseName\":\"master\",\"DatabaseVersion\":\"2005\",\"MaxConcurrentConnections\":\"9\",\"ConnectionRetryTimeOut\":\"34\",\"ConnectionIdleTime\":\"45\"}}",
+        "description": "The following example shows how to define an MSSQL database connection profile."
+    },
+    "Database MSSQL SSIS": {
+        "prefix": "jac.connection.profile.Database.MSSQL.SSIS",
+        "body": "{\"SSIS_CONNECTION_PROFILE\":{\"Type\":\"ConnectionProfile:Database:MSSQL:SSIS\",\"TargetAgent\":\"AgentHost\",\"TargetCTM\":\"LocalControlM\",\"Host\":\"localhost\",\"User\":\"administrator\",\"Port\":\"1433\",\"Password\":\"db password\",\"DatabaseName\":\"testdb\",\"DatabaseVersion\":\"2016\",\"AuthenticationType\":\"Windows Authentication\",\"SkipPackagesTest\":false,\"SSIS\":[{\"Source\":\"File System\",\"Name\":\"file_system_package\",\"Password\":\"password\"},{\"Source\":\"SSIS Package Store\",\"Name\":\"ssis_package\",\"Password\":\"password\"},{\"Source\":\"SQL Server\",\"Name\":\"sql_server_package\",\"Password\":\"password\"}]}}",
+        "description": "The following example shows how to define a connection profile for SQL Server Integration Services (SSIS) packages"
+    },
+    "Database Oracle Service Name": {
+        "prefix": "jac.connection.profile.Database.Oracle.Service.Name",
+        "body": "{\"ORACLE_CONNECTION_PROFILE\":{\"Type\":\"ConnectionProfile:Database:Oracle:ServiceName\",\"TargetCTM\":\"controlm\",\"Port\":\"1521\",\"TargetAgent\":\"AgentHost\",\"Host\":\"OracleHost\",\"User\":\"db user\",\"Password\":\"db password\",\"ServiceName\":\"ORCL\"}}",
+        "description": "The following example shows how to define a connection profile for an Oracle database using a single service name."
+    },
+    "Database Oracle SID": {
+        "prefix": "jac.connection.profile.Database.Oracle.SID",
+        "body": "{\"ORACLE_CONNECTION_PROFILE\":{\"Type\":\"ConnectionProfile:Database:Oracle:SID\",\"TargetCTM\":\"controlm\",\"Port\":\"1521\",\"TargetAgent\":\"AgentHost\",\"Host\":\"OracleHost\",\"User\":\"db user\",\"Password\":\"db password\",\"SID\":\"ORCL\"}}",
+        "description": "The following example shows how to define a connection profile for an Oracle database using the SID identifier."
+    },
+    "Database Oracle Connection String": {
+        "prefix": "jac.connection.profile.Database.Oracle.Connection.String",
+        "body": "{\"ORACLE_CONNECTION_PROFILE\":{\"Type\":\"ConnectionProfile:Database:Oracle:ConnectionString\",\"TargetCTM\":\"CTMHost\",\"ConnectionString\":\"OracleHost:1521:ORCL\",\"TargetAgent\":\"AgentHost\",\"User\":\"db user\",\"Password\":\"db password\"}}",
+        "description": "The following example shows how to define a connection profile for an Oracle database using a connection string that contains text from your tnsname.ora file."
+    },
+    "Database PostgreSQL": {
+        "prefix": "jac.connection.profile.Database.PostgreSQL",
+        "body": "{\"POSTGRESQL_CONNECTION_PROFILE\":{\"Type\":\"ConnectionProfile:Database:PostgreSQL\",\"TargetCTM\":\"CTMHost\",\"TargetAgent\":\"AgentHost\",\"Host\":\"PostgreSQLHost\",\"Port\":\"5432\",\"User\":\"db user\",\"Password\":\"db password\",\"DatabaseName\":\"postgres\"}}",
+        "description": "The following example shows how to define a connection profile for PostgreSQL."
+    },
+    "Database Sybase": {
+        "prefix": "jac.connection.profile.Database.Sybase",
+        "body": "{\"SYBASE_CONNECTION_PROFILE\":{\"Type\":\"ConnectionProfile:Database:Sybase\",\"TargetCTM\":\"CTMHost\",\"TargetAgent\":\"AgentHost\",\"Host\":\"SybaseHost\",\"Port\":\"4100\",\"User\":\"db user\",\"Password\":\"db password\",\"DatabaseName\":\"Master\"}}",
+        "description": "The following example shows how to define a connection profile for Sybase."
+    },
+    "SAP Application Server": {
+        "prefix": "jac.connection.profile.SAP.Application.Server",
+        "body": "{\"SAP-SERVER-CONN\":{\"Type\":\"ConnectionProfile:SAP\",\"User\":\"my-user\",\"Password\":\"123456\",\"SapClient\":\"100\",\"Language\":\"\",\"XBPVersion\":\"XBP3.0\",\"AppVersion\":\"R3\",\"ApplicationServerLogon\":{\"Host\":\"localhost\",\"SystemNumber\":\"12\"},\"SecuredNetworkConnection\":{\"SncLib\":\" \",\"SncPartnerName\":\"\",\"QualityOfProtection\":\"2\",\"SncMyName\":\"\"},\"SapResponseTimeOut\":\"180\",\"UseExtended\":true,\"SolutionManagerConnectionProfile\":\"IP4-GROUP\",\"IsSolutionManagerConnectionProfile\":true}}",
+        "description": "The following example is for a connection profile for a specific SAP Application Server"
+    },
+    "SAP Logon Group": {
+        "prefix": "jac.connection.profile.SAP.Logon.Group",
+        "body": "{\"SAP-GROUP-CONN\":{\"Type\":\"ConnectionProfile:SAP\",\"User\":\"my-user\",\"Password\":\"123456\",\"SapClient\":\"100\",\"Language\":\"\",\"XBPVersion\":\"XBP3.0\",\"AppVersion\":\"R3\",\"GroupLogon\":{\"SystemID\":\"123\",\"MessageServerHostName\":\"msgsv\",\"GroupName\":\"group1\"},\"SecuredNetworkConnection\":{\"SncLib\":\" \",\"SncPartnerName\":\"\",\"QualityOfProtection\":\"2\",\"SncMyName\":\"\"},\"SapResponseTimeOut\":\"180\",\"UseExtended\":true,\"SolutionManagerConnectionProfile\":\"IP4-GROUP\",\"IsSolutionManagerConnectionProfile\":true}}",
+        "description": "The following example is for a connection profile for an SAP logon group"
+    },
+    "Application Integrator": {
+        "prefix": "jac.connection.profile.Application.Integrator",
+        "body": "{\"AI_CONNECTION_PROFILE\":{\"Type\":\"ConnectionProfile:ApplicationIntegrator:<JobType>\",\"TargetAgent\":\"AgentHost\",\"TargetCTM\":\"CTMHost\",\"AI-Param03\":\"45\",\"AI-Param04\":\"group\",\"Centralized\":true}}",
+        "description": "The following example shows how to define a connection profile for a job type defined in the Control-M Application Integrator."
+    },
+    "Informatica Basic": {
+        "prefix": "jac.connection.profile.Informatica.Basic",
+        "body": "{\"INFORMATICA_CONNECTION\":{\"Type\":\"ConnectionProfile:Informatica\",\"TargetAgent\":\"AgentHost\",\"TargetCTM\":\"CTMHost\",\"Host\":\"InformaticaHost\",\"Port\":\"7333\",\"User\":\"UserName\",\"Password\":\"Password\",\"PowerCenterDomain\":\"DomainName\",\"Repository\":\"RepositoryName\",\"IntegrationService\":\"ServiceName\",\"SecurityDomain\":\"Native\",\"ConnectionType\":\"HTTP\",\"MaxConcurrentConnections\":\"100\",\"Centralized\":false}}",
+        "description": "The following example shows how to define a connection profile for an Informatica job"
+    },
+    "Informatica Cloud Services": {
+        "prefix": "jac.connection.profile.Informatica.Cloud.Services",
+        "body": "{\"INFORMATICA_CS_CONNECTION\":{\"Type\":\"ConnectionProfile:Informatica CS\",\"Login URL\":\"https://usw5.dm-us.informaticacloud.com/ma/api/v2/user/login\",\"Base URL\":\"https://usw5.dm-us.informaticacloud.com\",\"Username\":\"UserName\",\"Password\":\"Password\",\"Request Timeout\":\"3\",\"Description\":\"\",\"Centralized\":true}}",
+        "description": "The following example shows how to define a connection profile for an Informatica Cloud Services job."
+    },
+    "AWS": {
+        "prefix": "jac.connection.profile.AWS",
+        "body": "{\"AWS_CONNECTION\":{\"Type\":\"ConnectionProfile:AWS\",\"TargetAgent\":\"AgentHost\",\"TargetCTM\":\"CTMHost\",\"AccessKey\":\"1234\",\"SecretAccessKey\":\"mysecret\",\"Region\":\"ap-northeast-1\"}}",
+        "description": "The following example shows how to define a connection profile for an AWS job"
+    },
+    "AWS Glue Access Key & Secret": {
+        "prefix": "jac.connection.profile.AWS.Glue.Secret",
+        "body": "{\"AWS_CONNECTION\":{\"Type\":\"ConnectionProfile:AWS\",\"TargetAgent\":\"AgentHost\",\"TargetCTM\":\"CTMHost\",\"AccessKey\":\"1234\",\"SecretAccessKey\":\"mysecret\",\"Region\":\"ap-northeast-1\"}}",
+        "description": "The following example is based on authentication using an AWS access key and secret."
+    },
+    "AWS Glue Access IAM": {
+        "prefix": "jac.connection.profile.AWS.Glue.IAM",
+        "body": "{\"GLUECONNECTIONIAM\":{\"Type\":\"ConnectionProfile:AWS Glue\",\"AI-IAM Role\":\"GLUEEC2IAMROLE\",\"AI-Authentication\":\"NOSECRET\",\"AI-AWS_REGION\":\"eu-west-2\",\"AI-Glue url\":\"glue.eu-west-2.amazonaws.com\",\"AI-Connection Timeout\":\"40\",\"Description\":\"\",\"Centralized\":true}}",
+        "description": "The following example is based on authentication using an AWS IAM role from inside an EC2 instance."
+    },
+    "Azure Basic": {
+        "prefix": "jac.connection.profile.Azure.Basic",
+        "body": "{\"AZURE_CONNECTION\":{\"Type\":\"ConnectionProfile:Azure\",\"TargetAgent\":\"AgentHost\",\"TargetCTM\":\"CTMHost\",\"ActiveDirectoryDomainName\":\"bmc.onmicrosoft.com\",\"SubscriptionID\":\"bcde-fgh-ijk-lmnopq\",\"ApplicationID\":\"abcd-efg-hij-klmnop\",\"User\":\"user1@bmc.onmicrosoft.com\",\"Password\":\"*****\",\"Batch\":{\"BatchAccountName\":\"myFirstBatch\",\"BatchAccountKey\":\"aaaaaabbbbbbbccccccc\",\"Location\":\"centralus\"}}}",
+        "description": "The following example shows how to define a connection profile for an Azure job."
+    },
+    "Azure Data Factory Service Principal": {
+        "prefix": "jac.connection.profile.Azure.Data.Factory.Service.Principal",
+        "body": "{\"AZURE_CONNECTION\":{\"Type\":\"ConnectionProfile:Azure\",\"TargetAgent\":\"AgentHost\",\"TargetCTM\":\"CTMHost\",\"ActiveDirectoryDomainName\":\"bmc.onmicrosoft.com\",\"SubscriptionID\":\"bcde-fgh-ijk-lmnopq\",\"ApplicationID\":\"abcd-efg-hij-klmnop\",\"User\":\"user1@bmc.onmicrosoft.com\",\"Password\":\"*****\",\"Batch\":{\"BatchAccountName\":\"myFirstBatch\",\"BatchAccountKey\":\"aaaaaabbbbbbbccccccc\",\"Location\":\"centralus\"}}}",
+        "description": "The following examples show how to define a connection profile for an ADF job, which executes an Azure Data Factory (ADF) service and allows you to automate the movement and transformation of data."
+    },
+    "Azure Data Factory Managed Identities": {
+        "prefix": "jac.connection.profile.Azure.Data.Factory.Managed.Identities",
+        "body": "{\"ADF_MANID\":{\"Type\":\"ConnectionProfile:ADF\",\"AI-Identity Type\":\"MANAGEDID\",\"AI-Subscription ID\":\"subscriptionId\",\"AI-Connection Timeout\":\"40\",\"Description\":\"\",\"Centralized\":true}}",
+        "description": "The following example is based on authentication using managed identities"
+    },
+    "Azure Databricks": {
+        "prefix": "jac.connection.profile.Azure.Databricks",
+        "body": "{\"ADF_SERVPRINC\":{\"Type\":\"ConnectionProfile:Azure Databricks\",\"Tenant ID\":\"tenantId\",\"Databricks Resource\":\"2ff814a6-3304-4ab8-85cb-cd0e6f879c1d\",\"Application ID\":\"4f477fa3-1a1g-4877-ca92-f39bb563f3b1\",\"Client Secret\":\"*****\",\"Databricks url\":\"https://adb-1111211144444680.0.azuredatabricks.net\",\"Azure Login url\":\"https://login.microsoftonline.com\",\"Connection Timeout\":\"50\",\"Description\":\"\",\"Centralized\":true}}",
+        "description": "The following example shows how to define a connection profile for an Azure Databricks job, which performs big data analytics."
+    },
+    "Azure Functions Service Principal": {
+        "prefix": "jac.connection.profile.Azure.Functions.Service.Principal",
+        "body": "{\"AZUREFUNCTIONS\":{\"Type\":\"ConnectionProfile:AzureFunctions\",\"Subscription ID\":\"bcde-fgh-ijk-lmnopq\",\"Identity Type\":\"PRINCIPAL\",\"Tenant ID\":\"tenantId\",\"Application ID\":\"4f477fa3-1a1g-4877-ca92-f39bb563f3b1\",\"Client Secret\":\"*********\",\"Azure Login url\":\"https://login.microsoftonline.com\",\"Resource Group\":\"resourceGroup\",\"Description\":\"\",\"Centralized\":true}}",
+        "description": "The following examples show how to define a connection profile for an Azure Functions job, which executes an Azure cloud service for serverless application development."
+    },
+    "Azure Functions Managed Identities": {
+        "prefix": "jac.connection.profile.Azure.Functions.Managed.Identities",
+        "body": "{\"AZUREFUNCTIONS\":{\"Type\":\"ConnectionProfile:AzureFunctions\",\"Subscription ID\":\"bcde-fgh-ijk-lmnopq\",\"Identity Type\":\"MANAGEDID\",\"Application ID\":\"4f477fa3-1a1g-4877-ca92-f39bb563f3b1\",\"Resource Group\":\"resourceGroup\",\"Description\":\"\",\"Centralized\":true}}",
+        "description": "The following example is based on authentication using managed identities."
+    },
+    "Microsoft Power BI": {
+        "prefix": "jac.connection.profile.Microsoft.Power.BI",
+        "body": "{\"POWERBI\":{\"Type\":\"ConnectionProfile:Power BI\",\"Application ID\":\"77538c66-d7fp-4ca4-8cwa-120ed404fe8c\",\"Client Secret\":\"*****\",\"User Name\":\"user1@Elearningace.onmicrosoft.com\",\"Password\":\"*****\",\"Resource Group\":\"https://analysis.windows.net/powerbi/api\",\"API URL\":\"https://api.powerbi.com/v1.0/myorg/\",\"Description\":\"Power BI connection profile\",\"Centralized\":true}}",
+        "description": "The following example shows how to define a connection profile for a Power BI job, which enables integration of Power BI workflows with your existing Control-M workflows."
+    },
+    "PeopleSoft": {
+        "prefix": "jac.connection.profile.PeopleSoft",
+        "body": "{\"PS_CONNECT\":{\"Type\":\"ConnectionProfile:PeopleSoft\",\"TargetAgent\":\"AgentHost\",\"TargetCTM\":\"CTMHost\",\"Centralized\":true,\"User\":\"User_Name\",\"Password\":\"Password\",\"DomainPassword\":\"****\",\"PeopleToolsVersion\":\"8.52\",\"ApplicationServers\":[{\"ApplicationServer\":\"ApplicationServer1\",\"JoltPort\":\"1024\"},{\"ApplicationServer\":\"ApplicationServer2\",\"JoltPort\":\"65535\"}]}}",
+        "description": "The following example shows how to define a connection profile for a PeopleSoft job."
+    },
+    "WebServices SOAP": {
+        "prefix": "jac.connection.profile.WebServices.SOAP",
+        "body": "{\"WSDL_CONNECT\":{\"Type\":\"ConnectionProfile:WebServices\",\"TargetAgent\":\"AgentHost\",\"TargetCTM\":\"CTMHost\",\"ServiceType\":\"WebServices\",\"Location\":\"http: //example.com/serverpolicy/Request.asmx?wsdl\",\"HttpAuthentication\":\"user1:password@realm1;\"}}",
+        "description": "The following example shows how to define a connection profile for a job to a web service."
+    },
+    "WebServices REST": {
+        "prefix": "jac.connection.profile.WebServices.REST",
+        "body": "{\"WSDL_CONNECT\":{\"Type\":\"ConnectionProfile:WebServices\",\"TargetAgent\":\"AgentHost\",\"TargetCTM\":\"CTMHost\",\"ServiceType\":\"Rest\",\"Location\":\"http://example.com/serverpolicy/Request.asmx?wsdl\",\"HttpAuthentication\":\"user1:password@realm1;user2:password@realm2\",\"LoginUrl\":\"http://abc.xyz.com/login\",\"LoginHeader\":\"Accept:*/*\",\"LoginBody\":\"{}\",\"JobPreset\":\"@SessionId:@Token\"}}",
+        "description": "The following example shows how to define a connection profile for a job to a RESTful web service."
+    },
+    "UI Path": {
+        "prefix": "jac.connection.profile.UI.Path",
+        "body": "{\"UIPATH_Connect\":{\"Type\":\"ConnectionProfile:UI Path\",\"Tenant Url\":\"devabcdexample/DevDefault\",\"Tenant Name\":\"DevDefaultexample\",\"App ID\":\"caaabc57-v8ad-30e5-ah3b0-25am5jf361c3\",\"App Secret\":\"L!Mh4o#0nv1odf#f\",\"Connection Timeout\":\"30\",\"Description\":\"\",\"Centralized\":true}}",
+        "description": "The following examples show how to define a connection profile for a UiPath job, which performs robotic process automation (RPA)."
+    },
+    "Google Dataflow": {
+        "prefix": "jac.connection.profile.Google.Dataflow",
+        "body": "{\"GCPDATAFLOW\":{\"Type\":\"ConnectionProfile:Google Dataflow\",\"Identity Type\":\"service_account\",\"Dataflow URL\":\"https://dataflow.googleapis.com\",\"Service Account Key (JSON Format)\":\"*****\",\"Description\":\"\",\"Centralized\":true}}",
+        "description": "The following example shows how to define a connection profile for a Google Dataflow job, which performs cloud-based data processing for batch and real-time data streaming applications."
+    },
+    "Google Dataproc": {
+        "prefix": "jac.connection.profile.Google.Dataproc",
+        "body": "{\"GCPDATAPROC\":{\"Type\":\"ConnectionProfile:Google Dataproc\",\"Identity Type\":\"service_account\",\"Dataproc URL\":\"https://dataproc.googleapis.com\",\"Service Account Key (JSON Format)\":\"*****\",\"Description\":\"\",\"Centralized\":true}}",
+        "description": "The following example shows how to define a connection profile for a Google Dataproc job, which performs cloud-based big data processing and machine learning."
+    },
+    "Boomi": {
+        "prefix": "jac.connection.profile.Boomi",
+        "body": "{\"BOOMICCP\":{\"Type\":\"ConnectionProfile:Boomi\",\"AccountId\":\"*****\",\"API Token\":\"*****\",\"End Point\":\"https://api.boomi.com\",\"API Username\":\"BOOMI_TOKEN.BoomiUsername\",\"Description\":\"\",\"Centralized\":true}}",
+        "description": "The following examples show how to define a connection profile for a Boomi job, which enables integration of Boomi processes with your existing Control-M workflows."
+    },
+    "Databricks": {
+        "prefix": "jac.connection.profile.Databricks",
+        "body": "{\"DATABRICKS\":{\"Type\":\"ConnectionProfile:Databricks\",\"Databricks workspace url\":\"https://dbc-7b944b32-faf0.cloud.databricks.com\",\"Databricks personal access token\":\"*****\",\"Connection Timeout\":\"50\",\"Description\":\"\",\"Centralized\":true}}",
+        "description": "The following examples show how to define a connection profile for a Databricks job, which enables integration of jobs created in the Databricks environment with your existing Control-M workflows."
+    }
+}

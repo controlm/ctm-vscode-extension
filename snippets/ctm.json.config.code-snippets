@@ -1,0 +1,92 @@
+{
+    "Add Remote Host": {
+        "prefix": "jac.config.server.remotehost.add",
+        "body": "{\"remotehost\":\"xx\",\"port\":22,\"agents\":[\"<local>\"],\"encryptAlgorithm\":\"BLOWFISH\",\"compression\":\"false\",\"authorize\":\"true\"}",
+        "description": "Add Remote Host"
+    },
+    "Add Agent": {
+        "prefix": "jac.config.server.agent.add",
+        "body": "{\"persistentConnection\":true,\"sslState\":\"Enabled\",\"tag\":\"abc_12345\"}",
+        "description": "Add Agent"
+    },
+    "Ping Agent": {
+        "prefix": "jac.config.server.agent.ping",
+        "body": "{\"discover\": true,\"timeout\": 60}",
+        "description": "Ping Agent"
+    },
+    "Create Agent Certificate": {
+        "prefix": "jac.config.server.agent.csr.create",
+        "body": "{\"organization\":\"example_organization\",\"organizationUnit\":\"example_unit\",\"cityLocality\":\"example_city\",\"stateProvince\":\"example_state\",\"country\":\"CO\",\"emailAddress\":\"admin@example.com\"}",
+        "description": "Create Agent Certificate"
+    },
+    "Add Agent to Host Group": {
+        "prefix": "jac.config.server.agent.hostgroup.add",
+        "body": "{\"host\":\"agent3\",\"hostgroupAgentParticipation\":{\"event\":\"agent3Cond\",\"orderDate\":\"AnyDate\"}}",
+        "description": "Add Agent to Host Group"
+    },
+    "Update Host Group": {
+        "prefix": "jac.config.server.host.group.update",
+        "body": "{\"agentslist\":[{\"host\":\"agent1\",\"hostgroupAgentParticipation\":{\"event\":\"eventString\",\"orderDate\":\"AnyDate\"}},{\"host\":\" agent2\",\"hostgroupAgentParticipation\":null},{\"host\":\"agent3\"}]}",
+        "description": "Update Host Group"
+    },
+    "Add SSH RunAs User": {
+        "prefix": "jac.config.server.run.as.user.add",
+        "body": "{\"user\":\"user1\",\"agent\":\"All\",\"key\":{\"keyname\":\"keyName\",\"passphrase\":\"passphrase1\"}}",
+        "description": "Add SSH RunAs User"
+    },
+    "Admin Role Authorization": {
+        "prefix": "jac.config.authorization.role.admin",
+        "body": "{\"Name\":\"AdminRole\",\"Description\":\"Administration role\",\"AllowedJobs\":{\"Included\":[[[\"FileName\",\"like\",\"a*\"],[\"JobType\",\"eq\",\"Job,Command\"]],[[\"FileName\",\"like\",\"b*\"],[\"JobType\",\"eq\",\"Job,Command\"]]],\"Excluded\":[[[\"FileName\",\"like\",\"c*\"],[\"JobType\",\"eq\",\"Job,Command\"]],[[\"FileName\",\"like\",\"d*\"],[\"JobType\",\"eq\",\"Job,Command\"]]]},\"AllowedJobActions\":{\"ViewProperties\":true,\"SetToOk\":true,\"Documentation\":true,\"Confirm\":true,\"Log\":true},\"Privileges\":{\"ClientAccess\":{\"ControlmWebClientAccess\":\"Full\",\"ApplicationIntegratorAccess\":\"None\"},\"ConfigurationManager\":{\"Authorization\":\"Browse\",\"ControlmSecurity\":\"Update\"}},\"Folders\":[{\"Privilege\":\"Full\",\"ControlmServer\":\"aaa*\",\"Library\":\"bbb*\",\"Folder\":\"ccc*\",\"Run\":true,\"Jobs\":{\"Privilege\":\"Full\",\"Application\":\"aaa*\",\"SubApplication\":\"bbb*\"}}],\"Calendars\":[{\"Privilege\":\"Full\",\"ControlmServer\":\"aaa*\",\"Name\":\"bbb*\"}],\"RunasUsers\":[{\"ControlmServer\":\"aaa*\",\"RunasUser\":\"aaa*\",\"Host\":\"bbb*\"}],\"WorkloadPolicies\":[{\"Privilege\":\"Full\",\"Name\":\"*\"}],\"SiteStandard\":[{\"Privilege\":\"Full\",\"Name\":\"*\"}],\"SiteCustomization\":[{\"Privilege\":\"Full\",\"Name\":\"*\"}],\"Services\":[{\"Privilege\":\"Full\",\"Name\":\"*\",\"AllowedActions\":{\"DrillDown\":true,\"Run\":true,\"Hold\":true,\"Resume\":true,\"ViewOrderableService\":true}}],\"Events\":[{\"Privilege\":\"Full\",\"ControlmServer\":\"aaa*\",\"Name\":\"*\"}],\"Locks\":[{\"Privilege\":\"Full\",\"ControlmServer\":\"aaa*\",\"Name\":\"*\"}],\"Pools\":[{\"Privilege\":\"Full\",\"ControlmServer\":\"aaa*\",\"Name\":\"*\"}],\"GlobalEvents\":[{\"Privilege\":\"Full\",\"Name\":\"*\"}],\"AgentManagement\":[{\"ControlmServer\":\"ctm3\",\"Agent\":\"agent3\",\"Privilege\":\"Browse\"},{\"ControlmServer\":\"ctm4\",\"Agent\":\"agent4\",\"Privilege\":\"Update\"}],\"PluginManagement\":[{\"ControlmServer\":\"ctm3\",\"Agent\":\"agent3\",\"PluginType\":\"SAP*\",\"Privilege\":\"Browse\"},{\"ControlmServer\":\"ctm4\",\"Agent\":\"agent4\",\"PluginType\":\"OEBS\",\"Privilege\":\"Update\"}],\"ConnectionProfileManagement\":[{\"ControlmServer\":\"ctm3\",\"Agent\":\"agent3\",\"PluginType\":\"SAP*\",\"Name\":\"cpp3*\",\"Privilege\":\"Browse\"},{\"ControlmServer\":\"ctm4\",\"Agent\":\"agent4\",\"PluginType\":\"OEBS\",\"Name\":\"cpp4*\",\"Privilege\":\"Update\"}],\"RunasDefinitionManagement\":[{\"ControlmServer\":\"br*\",\"Privilege\":\"Browse\"},{\"ControlmServer\":\"up*\",\"Privilege\":\"Update\"}]}",
+        "description": "Admin Role Authorization"
+    },
+    "User Role Authorization": {
+        "prefix": "jac.config.authorization.role.user",
+        "body": "{\"Name\":\"emuser1\",\"FullName\":\"John Doe\",\"Description\":\"Control-M/EM user number 1\",\"Authentication\":{\"ExternalProvider\":{\"LdapUserAndDomain\":\"user1@prod\"},\"ControlM\":{\"Password\":\"keySecret\",\"PasswordExpirationDays\":60,\"ChangePasswordAtNextLogin\":true,\"LockAccount\":true}},\"Roles\":[\"AdminGroup\",\"UpdateGroup\"]}",
+        "description": "User Role Authorization"
+    },
+    "Job Archive Rule": {
+        "prefix": "jac.config.archive.rule.jobs",
+        "body": "{\"name\":\"All DS jobs\",\"description\":\"Collect all DS jobs\",\"maxOutputSize\":20,\"maxOutputSizeType\":\"MB\",\"trimType\":\"Omit\",\"retention\":1,\"retentionType\":\"Months\",\"isActive\":true,\"archivedType\":\"Log\",\"ruleParameters\":[{\"field\":\"ctm\",\"criteria\":\"*\",\"exceptions\":[\"fds*\"]},{\"field\":\"jobName\",\"criteria\":\"A*\",\"exceptions\":[\"Ac*\",\"Ad*\"]},{\"field\":\"jobType\",\"criteria\":\"Job:FileTransfer\"},{\"field\":\"application\",\"criteria\":\"*\",\"exceptions\":[\"c*\"]},{\"field\":\"subApplication\",\"criteria\":\"s*\",\"exceptions\":[\"s4*\"]},{\"field\":\"folder\",\"criteria\":\"*\",\"exceptions\":[\"f*\"]},{\"field\":\"library\",\"criteria\":\"bmc*\",\"exceptions\":[\"bmc6*\",\"bmc7*\"]},{\"field\":\"jobStatus\",\"criteria\":\"Ended OK\"}]}",
+        "description": "Job Archive Rule"
+    },
+    "Node Port Definition": {
+        "prefix": "jac.config.server.agent.mft.ssh.cluster.authorize",
+        "body": "{\"hostList\":[{\"physicalHostname\":\"host1\",\"port\":\"22\"},{\"physicalHostname\":\"host2\",\"port\":\"1222\"}]}",
+        "description": "Node Port Definition"
+    },
+    "PGP Template Definition": {
+        "prefix": "jac.config.server.agent.mft.pgp.template",
+        "body": "{\"name\":\"template1\",\"executableFullPath\":\"/home/dbauser/bin\",\"exitCode\":0,\"passphrase\":\"passphrase/KEEP_EXISTING\",\"recipient\":\"moshe\",\"encryptionAttributes\":\"-e $$PGP_INPUT_FILE$$ ...\",\"decryptionAttributes\":\"-d $$PGP_INPUT_FILE$$ ...\"}",
+        "description": "PGP Template Definition"
+    },
+    "zOS Template Definition": {
+        "prefix": "jac.config.server.agent.mft.zos.template",
+        "body": "{\"name\":\"ZOS_template\",\"recordFormat\":\"Fixed\",\"logicalRecordLength\":1000,\"blockSize\":1200,\"translationTable\":\"BELGIAN\",\"transferMode\":\"Block\",\"smsManagmentClass\":\"A\",\"allocationUnits\":\"TRACKS\",\"volume\":\"asdsa\",\"unit\":\"aaa\",\"primaryAllocation\":123,\"secondaryAllocation\":444,\"smsDataClass\":\"asdsa\",\"dbcsEncoding\":\"Hangeul\",\"transferToUniqueFile\":true,\"additionalOptionsHost1\":\"\",\"additionalOptionsHost2\":\"\"}",
+        "description": "zOS Template Definition"
+    },
+    "MFT Template Definition": {
+        "prefix": "jac.config.server.agent.mft.template",
+        "body": "{\"connectionTimeoutInSeconds\":30,\"connectionRetries\":5,\"connectionTimeBetweenRetriesInSeconds\":6,\"debugLevel\":1,\"pgpTempDir\":\"C:\\temp\",\"sslDebugTrace\":false,\"pamAuthentication\":false,\"proxyIsInUse\":false,\"proxyHost\":\"host1234\",\"proxyPort\":1456,\"proxyUser\":\"user1\",\"proxyPassword\":\"passphrase/KEEP_EXISTING\",\"fileWatcherSearchInterval\":30,\"fileWatcherStaticIterations\":3,\"fileWatcherCheckFileIsInUse\":false,\"fileActionsRetriesIntervalInSeconds\":5,\"fileActionsRetriesNum\":3}",
+        "description": "MFT Template Definition"
+    },
+    "External MFT User": {
+        "prefix": "jac.config.mft.external.user.template",
+        "body": "{\"name\":\"username1\",\"email\":\"aaa@bbb.com\",\"description\":\"description\",\"company\":\"companyName\",\"phoneNumber\":\"44-16-5555555\",\"password\":\"********\",\"sshKey\":\"key\",\"as2Key\":{\"id\":\"as2KeyId\",\"partnersCertificateAlias\":\"partner_certificate\",\"destinationFolder\":\"folder_dest1\"}}",
+        "description": "External MFT User"
+    },
+    "External MFT Virtual Folder": {
+        "prefix": "jac.config.mft.virtual.folder",
+        "body": "{\"name\":\"folder_1\",\"authorizedInternalUsers\":[\"username1\",\"username2\"],\"authorizedExternalUsersAndGroups\":[\"username1\",\"username2\"],\"deleteFilesAfterDownload\":true,\"notifyByEmailWhenFileArrive\":true,\"retentionPolicy\":10,\"sizeLimit\":100,\"allowedFilePattern\":\"*.zip\",\"blockedFilePattern\":\"*.exe\"}",
+        "description": "External MFT Virtual Folder"
+    },
+    "Add MFT User Group": {
+        "prefix": "jac.config.mft.user.group.add",
+        "body": "{\"name\":\"folder_1\",\"authorizedInternalUsers\":[\"username1\",\"username2\"],\"authorizedExternalUsersAndGroups\":[\"username1\",\"username2\"],\"deleteFilesAfterDownload\":true,\"notifyByEmailWhenFileArrive\":true,\"retentionPolicy\":10,\"sizeLimit\":100,\"allowedFilePattern\":\"*.zip\",\"blockedFilePattern\":\"*.exe\"}",
+        "description": "Add MFT User Group"
+    },
+    "Update MFT User Group": {
+        "prefix": "jac.config.mft.user.group.add",
+        "body": "{\"externalUsers\":[\"user1\",\"user2\"],\"ldapGroups\":[\"ldapGroup1\",\"ldapGroup2\"]}",
+        "description": "Update MFT User Group"
+    }                  
+}

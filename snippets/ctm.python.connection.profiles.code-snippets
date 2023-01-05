@@ -1,0 +1,396 @@
+{
+    "Hadoop Basic": {
+        "prefix": "jacConnectionProfileHadoopBasic",
+        "body": [
+            "cp_spark = ConnectionProfileHadoop(",
+            "    'SPARK_CONNECTION_PROFILE',",
+            "    target_agent='docker-hadoop',",
+            "    spark=ConnectionProfileHadoop.Spark(",
+            "        custom_path='/home'",
+            "    )",
+            ")"
+        ],
+        "description": "These are the required parameters for all Hadoop job types."
+    },
+    "Apache Oozie": {
+        "prefix": "jacConnectionProfileApacheOozie",
+        "body": [
+            "cp_ooze = ConnectionProfileHadoop(",
+            "    'OOZIE_CONNECTION_PROFILE',",
+            "    target_agent='docker-hadoop',",
+            "    oozie=ConnectionProfileHadoop.Oozie(",
+            "        ssl_enabled=True,",
+            "        host='hdp-centos',",
+            "        port='11000',",
+            "        extraction_rules=[",
+            "            ExtractRule(rule_name='rule1', work_flow_name='wf1',",
+            "                        work_flow_user_name='user1', folder_name='fname1', job_name='jname1'),",
+            "            ExtractRule(rule_name='rule2', work_flow_name='wf2',",
+            "                        work_flow_user_name='user2', folder_name='fname2', job_name='jname2')",
+            "        ]",
+            "    )",
+            ")"
+        ],
+        "description": "The following example shows a connection profile that defines access to a Apache Oozie server."
+    },
+    "Apache Sqoop": {
+        "prefix": "jacConnectionProfileApacheSqoop",
+        "body": [
+            "cp_sqoop = ConnectionProfileHadoop(",
+            "    'SQOOP_CONNECTION_PROFILE',",
+            "    centralized=True,",
+            "    sqoop=ConnectionProfileHadoop.Sqoop(",
+            "        user='user1',",
+            "        password='mypass',",
+            "        connection_string='jdbc:mysql://mysql.server/database',",
+            "        driver_class='com.mysql.jdbc.Driver'",
+            "    )",
+            ")"
+        ],
+        "description": "The following example shows a connection profile that defines access to a Apache Sqoop server."
+    },
+    "Apache Tajo": {
+        "prefix": "jacConnectionProfileApacheTajo",
+        "body": [
+            "cp_tajo = ConnectionProfileHadoop(",
+            "    'TAJO_CP',",
+            "    centralized=True,",
+            "    tajo=ConnectionProfileHadoop.Tajo(binary_path='$TAJO_HOME/bin/', database_name='myjob',",
+            "                                      master_server_name='myTajoServer', master_server_port='26001')",
+            ")"
+        ],
+        "description": "The following example shows a connection profile that defines access to a Apache Tajo server."
+    },
+    "Apache Hive Basic": {
+        "prefix": "jacConnectionProfileApacheHiveBasic",
+        "body": [
+            "cp_hive = ConnectionProfileHadoop('HIVE_CONNECTION_PROFILE',",
+            "                                  centralized=True,",
+            "                                  hive=ConnectionProfileHadoop.Hive(",
+            "                                      host='hivehost',",
+            "                                      port='10000',",
+            "                                      database_name='db'",
+            "                                  )",
+            "                                  )",
+            ""
+        ],
+        "description": "The following example shows a connection profile that defines access to a Apache Hive server."
+    },
+    "File Transfer FTP Basic": {
+        "prefix": "jacConnectionProfileFileTransferFTPBasic",
+        "body": [
+            "ftcon = ConnectionProfileFileTransferFTP('FTPConn',",
+            "                                         target_agent='agent',",
+            "                                         target_ctm='ctmserver',",
+            "                                         host_name='FTPServer',",
+            "                                         user='FTPUser',",
+            "                                         password='ftp_pass',",
+            "                                         additional_parameters=[",
+            "                                             PackageParams('param1', '1'),",
+            "                                             PackageParams('param2', '2'),",
+            "                                         ],",
+            "                                         home_directory='/home',",
+            "                                         os_type='Unix'",
+            "                                         )"
+        ],
+        "description": "The following examples show a connection profile for a file transfer to a single endpoint using the FTP communication protocol."
+    },
+    "File Transfer SFTP Basic": {
+        "prefix": "jacConnectionProfileFileTransferSFTPBasic",
+        "body": [
+            "ftcon = ConnectionProfileFileTransferSFTP('SFTPConn',",
+            "                                         target_agent='agent',",
+            "                                         target_ctm='ctmserver',",
+            "                                         host_name='SFTPServer',",
+            "                                         user='SFTPUser',",
+            "                                         private_key_name='/home/key',",
+            "                                         passphrase='passphrase',",
+            "                                         ssh_compression=True,",
+            "                                         additional_parameters=[",
+            "                                             PackageParams('param1', '1'),",
+            "                                             PackageParams('param2', '2'),",
+            "                                         ],",
+            "                                         home_directory='/home',",
+            "                                         os_type='Unix'",
+            "                                         )"
+        ],
+        "description": "The following examples show a connection profile for a file transfer to a single endpoint using the SFTP (SSH File Transfer Protocol) communication protocol."
+    },
+    "File Transfer FTP Secure": {
+        "prefix": "jacConnectionProfileFileTransferFTPSecure",
+        "body": [
+            "ftcon = ConnectionProfileFileTransferFTPS('FTPSConn',",
+            "                                         target_agent='agent',",
+            "                                         target_ctm='ctmserver',",
+            "                                         host_name='FTPServer',",
+            "                                         user='FTPUser',",
+            "                                         password='ftp_pass',",
+            "                                         ssl_implicit=True,",
+            "                                         clear_command_channel=True,",
+            "                                         clear_data_channel=True,",
+            "                                         ssl_level=ConnectionProfileFileTransferFTPS.SslLevel.ClientServerAuthentication,",
+            "                                         additional_parameters=[",
+            "                                             PackageParams('param1', '1'),",
+            "                                             PackageParams('param2', '2'),",
+            "                                         ],",
+            "                                         home_directory='/home',",
+            "                                         os_type='Unix'",
+            "                                         )"
+        ],
+        "description": "The following examples show a connection profile for a file transfer to a single endpoint using the FTP with SSL communication protocol."
+    },
+    "File Transfer Local": {
+        "prefix": "jacConnectionProfileFileTransferLocal",
+        "body": [
+            "ftcon = ConnectionProfileFileTransferLocal('LocalConn',",
+            "                                         target_agent='agent',",
+            "                                         target_ctm='ctmserver',",
+            "                                         password='pass',",
+            "                                         additional_parameters=[",
+            "                                             PackageParams('param1', '1'),",
+            "                                             PackageParams('param2', '2'),",
+            "                                         ],",
+            "                                         home_directory='/home',",
+            "                                         os_type='Unix'",
+            "                                         )"
+        ],
+        "description": "The following example shows a connection profile for a file transfer to a single endpoint on a Local File System."
+    },
+    "File Transfer S3 Amazon": {
+        "prefix": "jacConnectionProfileFileTransferS3Amazon",
+        "body": [
+            "ftcon = ConnectionProfileFileTransferS3Amazon('testAmazon',",
+            "                                              centralized=True,",
+            "                                              access_key='access',",
+            "                                              secret_access_key='secretAccess',",
+            "                                              verify_destination=True,",
+            "                                              additional_parameters=[",
+            "                                                  PackageParams('param1', '1'),",
+            "                                                  PackageParams('param2', '2'),",
+            "                                              ]",
+            "                                              )",
+            ""
+        ],
+        "description": "The following example shows a connection profile for file transfers between a local filesystem and an Amazon S3 storage service."
+    },
+    "File Transfer S3 Compatible": {
+        "prefix": "jacConnectionProfileFileTransferS3Compatible",
+        "body": [
+            "ftcon = ConnectionProfileFileTransferS3Compatible('testCompatible',",
+            "                                              centralized=True,",
+            "                                              access_key='access',",
+            "                                              rest_end_point='api.com',",
+            "                                              secret_access_key='secretAccess',",
+            "                                              verify_destination=True,",
+            "                                              additional_parameters=[",
+            "                                                  PackageParams('param1', '1'),",
+            "                                                  PackageParams('param2', '2'),",
+            "                                              ]",
+            "                                              )"
+        ],
+        "description": "The following example shows a connection profile for file transfers between a local filesystem and an S3-compatible storage service."
+    },
+    "File Transfer AS2": {
+        "prefix": "jacConnectionProfileFileTransferAS2",
+        "body": [
+            "ftcon = ConnectionProfileFileTransferAS2('AS2_Conn_1',",
+            "                                         centralized=True,",
+            "                                         workload_automation_groups=['noAI'],",
+            "                                         partner_as2_id='partner',",
+            "                                         partner_destination_url='dest.com',",
+            "                                         partner_certificate_alias='alias'",
+            "                                         )"
+        ],
+        "description": "The following example shows a connection profile for file transfers between a B2B and an AS2-compatible service."
+    },
+    "Database DB2": {
+        "prefix": "jacConnectionProfileDatabaseDB2",
+        "body": [
+            "cpdb = ConnectionProfileDatabaseDB2(",
+            "    'DB2_CONNECTION_PROFILE',",
+            "    centralized=True,",
+            "    host='DB2Host',",
+            "    port='50000',",
+            "    user='user',",
+            "    password='pass',",
+            "    database_name='db2'",
+            ")"
+        ],
+        "description": "The following example shows how to define a connection profile for DB2"
+    },
+    "Database JDBC Basic": {
+        "prefix": "jacConnectionProfileDatabaseJDBCBasic",
+        "body": [
+            "cpdb = ConnectionProfileDatabaseJDBC(",
+            "    'JDBC_CONNECTION_PROFILE',",
+            "    centralized=True,",
+            "    host='DB2Host',",
+            "    port='50000',",
+            "    user='user',",
+            "    password='pass',",
+            "    database_name='db2',",
+            "    driver='PGDRV'",
+            ")"
+        ],
+        "description": "The following example shows how to define a connection profile using a custom defined database type created using JDBC"
+    },
+    "Database MSSQL Basic": {
+        "prefix": "jacConnectionProfileDatabaseMSSQLBasic",
+        "body": [
+            "cpdb = ConnectionProfileDatabaseMSSql(",
+            "    'MSSQL_CONNECTION_PROFILE',",
+            "    centralized=True,",
+            "    host='DB2Host',",
+            "    port='50000',",
+            "    user='user',",
+            "    password='pass',",
+            "    database_name='db2',",
+            "    database_version='2005',",
+            "    max_concurrent_connections='9',",
+            "    connection_retry_time_out='34',",
+            "    connection_idle_time='45'",
+            ")"
+        ],
+        "description": "The following example shows how to define an MSSQL database connection profile."
+    },
+    "Database Oracle SID": {
+        "prefix": "jacConnectionProfileDatabaseOracleSID",
+        "body": [
+            "cpdb = ConnectionProfileDatabaseOracleSID(",
+            "    'ORACLE_CONNECTION_PROFILE',",
+            "    centralized=True,",
+            "    sid='ORCL',",
+            "    user='username',",
+            "    password='pass'",
+            ")",
+            ""
+        ],
+        "description": "The following example shows how to define a connection profile for an Oracle database using the SID identifier."
+    },
+    "Database Oracle Service Name": {
+        "prefix": "jacConnectionProfileDatabaseOracleServiceName",
+        "body": [
+            "cpdb = ConnectionProfileDatabaseOracleServiceName(",
+            "    'ORACLE_CONNECTION_PROFILE',",
+            "    centralized=True,",
+            "    service_name='ORCL',",
+            "    user='username',",
+            "    password='pass'",
+            ")",
+            ""
+        ],
+        "description": "The following example shows how to define a connection profile for an Oracle database using a single service name."
+    },
+    "Database Oracle Connection String": {
+        "prefix": "jacConnectionProfileDatabaseOracleConnectionString",
+        "body": [
+            "cpdb = ConnectionProfileDatabaseOracleConnectionString(",
+            "    'ORACLE_CONNECTION_PROFILE',",
+            "    centralized=True,",
+            "    connection_string='host:1521:ORCL',",
+            "    user='username',",
+            "    password='pass'",
+            ")",
+            ""
+        ],
+        "description": "The following example shows how to define a connection profile for an Oracle database using a connection string that contains text from your tnsname.ora file."
+    },
+    "Database PostgreSQL": {
+        "prefix": "jacConnectionProfileDatabasePostgreSQL",
+        "body": [
+            "cpdb = ConnectionProfileDatabasePostgreSql(",
+            "    'POSTGRESQL_CONNECTION_PROFILE',",
+            "    centralized=True,",
+            "    database_name='postgres',",
+            "    user='username',",
+            "    password='pass'",
+            ")",
+            ""
+        ],
+        "description": "The following example shows how to define a connection profile for PostgreSQL."
+    },
+    "SAP Application Server": {
+        "prefix": "jacConnectionProfileSAPApplicationServer",
+        "body": [
+            "cpsap = ConnectionProfileSAP(",
+            "    'SAPCON',",
+            "    centralized=True,",
+            "    sap_client='100',",
+            "    language='',",
+            "    xbp_version='XBP3.0',",
+            "    app_version='R3',",
+            "    application_server_logon=ConnectionProfileSAP.ApplicationServerLogon(",
+            "        host='localhost',",
+            "        system_number='12'",
+            "    ),",
+            "    secured_network_connection=ConnectionProfileSAP.SecuredNetworkConnection(",
+            "        snc_lib='',",
+            "        snc_partner_name='',",
+            "        quality_of_protection='2',",
+            "        snc_my_name=''",
+            "    ),",
+            "    sap_response_time_out='180',",
+            "    use_extended=True,",
+            "    solution_manager_connection_profile='IP4-GROUP',",
+            "    is_solution_manager_connection_profile=True",
+            "",
+            ")"
+        ],
+        "description": "The following example is for a connection profile for a specific SAP Application Server"
+    },
+    "Informatica Basic": {
+        "prefix": "jacConnectionProfileInformaticaBasic",
+        "body": [
+            "cpinf = ConnectionProfileInformatica('INFORMATICA_CONNECTION',",
+            "                                     centralized=True,",
+            "                                     host='INF',",
+            "                                     port='50000',",
+            "                                     user='user',",
+            "                                     password='pass',",
+            "                                     power_center_domain='domain',",
+            "                                     repository='rep',",
+            "                                     integration_service='servicename',",
+            "                                     security_domain='Native',",
+            "                                     connection_type=ConnectionProfileInformatica.ConnectionType.HTTP",
+            "                                     )"
+        ],
+        "description": "The following example shows how to define a connection profile for an Informatica job"
+    },
+    "AWS": {
+        "prefix": "jacConnectionProfileAWS",
+        "body": [
+            "cpaws = ConnectionProfileAWS('AWS_CONNECTION_IAMROLE',",
+            "                             centralized=True,",
+            "                             iam_role='myrole',",
+            "                             region='ap-northeast-1',",
+            "                             proxy_settings=ConnectionProfileAWS.ProxySettings(",
+            "                                 host='host',",
+            "                                 port='12345',",
+            "                                 username='user',",
+            "                                 password='pass'",
+            "                             )",
+            "                             )",
+            ""
+        ],
+        "description": "The following example shows how to define a connection profile for an AWS job"
+    },
+    "Azure Basic": {
+        "prefix": "jacConnectionProfileAzureBasic",
+        "body": [
+            "cpazure = ConnectionProfileAzure('AZURE_CONNECTION',",
+            "                                 centralized=True,",
+            "                                 active_directory_domain_name='domain',",
+            "                                 subscription_id='id',",
+            "                                 application_id='id',",
+            "                                 user='myuser',",
+            "                                 password='pass',",
+            "                                 batch=ConnectionProfileAzure.Batch(",
+            "                                     batch_account_name='mybatch',",
+            "                                     batch_account_key='key',",
+            "                                     location='centralus'",
+            "                                 )",
+            "                                 )"
+        ],
+        "description": "The following example shows how to define a connection profile for an Azure job."
+    }
+}
