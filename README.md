@@ -149,6 +149,7 @@ Create a new *.json or *.py file. Enter "jac." to utilize provided code snippets
 #### **Job Types - Python**
 | Category | Prefix  | 
 | -----------    | ------------------------ |
+| Application Integrator | jac-Job-***ai***-* |
 | AWS | jac-Job-***AWS*** |
 | Azure | jac-Job-***Azure*** |
 | Command Job | jac-Job-***Command*** |
@@ -168,6 +169,7 @@ Create a new *.json or *.py file. Enter "jac." to utilize provided code snippets
 | -----------    | ------------------------ |
 | AWS | jac.Job.***AWS***.* |
 | Application Integrator | jac.Job.***Application.Integrator***.* |
+| Application Integrator | jac.Job.***ai***.* |
 | Azure | jac.Job.***Azure***.* |
 | Boomi | jac.Job.***Boomi***.* |
 | Command Job | jac.Job.***Command*** |
