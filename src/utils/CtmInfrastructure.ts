@@ -357,6 +357,15 @@ export class CtmInfrastructureProvider implements vscode.TreeDataProvider<number
 					};
 				}
 
+				if (parentName === "sitestandards") {
+					nodeIcon = "checklist" + ".svg";
+
+					return {
+						light: this.context.asAbsolutePath(path.join('resources', 'light', nodeIcon)),
+						dark: this.context.asAbsolutePath(path.join('resources', 'dark', nodeIcon))
+					};
+				}
+
 				nodeIcon = "" + ".svg";
 				return {
 					light: this.context.asAbsolutePath(path.join('resources', 'light', nodeIcon)),
@@ -401,6 +410,14 @@ export class CtmInfrastructureProvider implements vscode.TreeDataProvider<number
 				};
 			}
 
+			if (nodeType === 'number') {
+				nodeIcon = "number" + ".svg";
+				return {
+					light: this.context.asAbsolutePath(path.join('resources', 'light', nodeIcon)),
+					dark: this.context.asAbsolutePath(path.join('resources', 'dark', nodeIcon))
+				};
+			}			
+
 			nodeIcon = "dependency" + ".svg";
 			return {
 				light: this.context.asAbsolutePath(path.join('resources', 'light', nodeIcon)),
@@ -430,6 +447,13 @@ export class CtmInfrastructureProvider implements vscode.TreeDataProvider<number
 					if (nodeTemp) {
 						if (CommonUtils.checkIfString(nodeTemp)) {
 							if (nodeTemp.startsWith("ConnectionProfile:")) {
+								nodeIcon = "settings" + ".svg";
+								return {
+									light: this.context.asAbsolutePath(path.join('resources', 'light', nodeIcon)),
+									dark: this.context.asAbsolutePath(path.join('resources', 'dark', nodeIcon))
+								};
+							}
+							if (nodeTemp.startsWith("Site Standard Policy")) {
 								nodeIcon = "settings" + ".svg";
 								return {
 									light: this.context.asAbsolutePath(path.join('resources', 'light', nodeIcon)),
@@ -610,6 +634,19 @@ export class CtmInfrastructureProvider implements vscode.TreeDataProvider<number
 							light: this.context.asAbsolutePath(path.join('resources', 'light', nodeIcon)),
 							dark: this.context.asAbsolutePath(path.join('resources', 'dark', nodeIcon))
 						};
+					} else if (property === "sitestandards") {
+						nodeIcon = "symbol-ruler" + ".svg";
+						return {
+							light: this.context.asAbsolutePath(path.join('resources', 'light', nodeIcon)),
+							dark: this.context.asAbsolutePath(path.join('resources', 'dark', nodeIcon))
+						};	
+					} else if (property === "policy") {
+						nodeIcon = "symbol-ruler" + ".svg";
+						return {
+							light: this.context.asAbsolutePath(path.join('resources', 'light', nodeIcon)),
+							dark: this.context.asAbsolutePath(path.join('resources', 'dark', nodeIcon))
+						};	
+						
 					} else {
 						nodeIcon = "dependency" + ".svg";
 						return {
@@ -630,6 +667,20 @@ export class CtmInfrastructureProvider implements vscode.TreeDataProvider<number
 						dark: this.context.asAbsolutePath(path.join('resources', 'dark', nodeIcon))
 					};
 				}
+				if (nodeKey === 'servers') {
+					nodeIcon = "server" + ".svg";
+					return {
+						light: this.context.asAbsolutePath(path.join('resources', 'light', nodeIcon)),
+						dark: this.context.asAbsolutePath(path.join('resources', 'dark', nodeIcon))
+					};
+				}
+				if (nodeKey === 'folders') {
+					nodeIcon = "file-submodule" + ".svg";
+					return {
+						light: this.context.asAbsolutePath(path.join('resources', 'light', nodeIcon)),
+						dark: this.context.asAbsolutePath(path.join('resources', 'dark', nodeIcon))
+					};
+				}				
 				if (nodeKey === 'nodeid') {
 					nodeIcon = "server-process" + ".svg";
 					return {
@@ -663,7 +714,14 @@ export class CtmInfrastructureProvider implements vscode.TreeDataProvider<number
 					light: this.context.asAbsolutePath(path.join('resources', 'light', nodeIcon)),
 					dark: this.context.asAbsolutePath(path.join('resources', 'dark', nodeIcon))
 				};
+			} else if (nodeType === 'number') {
+				nodeIcon = "number" + ".svg";
+				return {
+					light: this.context.asAbsolutePath(path.join('resources', 'light', nodeIcon)),
+					dark: this.context.asAbsolutePath(path.join('resources', 'dark', nodeIcon))
+				};
 			}
+
 			nodeIcon = "" + ".svg";
 			return {
 				light: this.context.asAbsolutePath(path.join('resources', 'light', nodeIcon)),
@@ -777,6 +835,11 @@ export class CtmInfrastructureProvider implements vscode.TreeDataProvider<number
 					return prefix = nodeName;
 				}
 
+				if (parentName === "sitestandards") {
+					const nodeName = node.children[0].children[1].value.toString();
+					return prefix = nodeName;
+				}
+
 				return prefix + ':[ ] L4';
 			}
 
@@ -868,6 +931,12 @@ export class CtmInfrastructureProvider implements vscode.TreeDataProvider<number
 						return property = "Calendars (" + nodeChildrenLenght + ")";
 					}
 
+					if (property === "policy") {
+						nodeTemp = node.children[1].children[1].value;
+						const nodeChildrenLenght = node.children.length.toString();
+						return property = "Policy: " + nodeTemp;
+					}
+					
 					return property + " L1 (" + nodeChildrenLenght + ")";
 				}
 				if (nodeType === 'array') {
@@ -918,6 +987,9 @@ export class CtmInfrastructureProvider implements vscode.TreeDataProvider<number
 						return property = "Workflow Resources (" + nodeChildrenLenght + ")";
 					} else if (property === "connections") {
 						return property = "Profiles";
+					} else if (property === "sitestandards") {
+                        const nodeChildrenLenght = node.children.length.toString();
+                        return property = "Site Standards (" + nodeChildrenLenght + ")";
 					} else {
 						return property = '[ ] L2 ' + property;
 					}
@@ -1358,6 +1430,11 @@ export class CtmInfrastructureProvider implements vscode.TreeDataProvider<number
 					return nodeResourceType;
 				}
 
+				if (parentName === "sitestandards") {
+					nodeResourceType = "ctm.sitestandards";
+					return nodeResourceType;
+				}
+
 				nodeResourceType = "";
 				return nodeResourceType;
 			}
@@ -1460,7 +1537,11 @@ export class CtmInfrastructureProvider implements vscode.TreeDataProvider<number
 						return nodeResourceType;
 					}
 
-
+					if (property === "sitestandards") {
+						nodeResourceType = "";
+						return nodeResourceType;
+					}
+					
 
 					nodeResourceType = "";
 					return nodeResourceType;
@@ -1672,6 +1753,11 @@ export class CtmInfrastructureProvider implements vscode.TreeDataProvider<number
 					return nodeToolTip;
 				}
 
+				if (parentName === "sitestandards") {
+					nodeToolTip = "";
+					return nodeToolTip;
+				}
+			
 				return prefix + ':[ ] L4';
 			}
 
