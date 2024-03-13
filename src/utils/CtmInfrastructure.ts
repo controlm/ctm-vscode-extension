@@ -901,6 +901,11 @@ export class CtmInfrastructureProvider implements vscode.TreeDataProvider<number
 
 					}
 
+					if (property === "mfte") {
+						const nodeChildrenLenght = node.children.length.toString();
+						return property = "Mananged File Transfer (" + nodeChildrenLenght + ")";
+					}
+
 					if (property === "workloadpolicies") {
 						const nodeChildrenLenght = node.children.length.toString();
 						return property = "Workload Policies (" + nodeChildrenLenght + ")";
@@ -989,7 +994,10 @@ export class CtmInfrastructureProvider implements vscode.TreeDataProvider<number
 						return property = "Profiles";
 					} else if (property === "sitestandards") {
                         const nodeChildrenLenght = node.children.length.toString();
-                        return property = "Site Standards (" + nodeChildrenLenght + ")";
+						return property = "Site Standards (" + nodeChildrenLenght + ")";
+					} else if (property === "sites") {
+                        const nodeChildrenLenght = node.children.length.toString();
+                        return property = "Sites (" + nodeChildrenLenght + ")";
 					} else {
 						return property = '[ ] L2 ' + property;
 					}

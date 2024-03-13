@@ -2,7 +2,7 @@
     "name": "jobs-as-code",
     "displayName": "Jobs-As-Code Werkzeugkiste for Control-M",
     "description": "All snippets and tools you need for Control-M Workflow development",
-    "version": "0.3.6",
+    "version": "0.3.7",
     "license": "BSD-3-Clause",
     "build": "beta",
     "repository": {

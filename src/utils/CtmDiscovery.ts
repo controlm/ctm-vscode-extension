@@ -326,7 +326,18 @@ export async function getCtmInfrastructure(context: vscode.ExtensionContext) {
         jsonStrTempB = jsonStrTempA.substring(1);
         jsonConnectionProfilesCentralized = jsonStrTempB.toString();
 
+        // collect CTM data
+        procNumString = CommonUtils.getProcNumString(context, strPrefix);
+        strMessage = " -> Evaluating 'Managed File Transfer Enterprise' ...";
+        (await OutputUtils.getOutputChannel()).appendLine(procNumString + strMessage);
+        console.log(strMessage);
+        let jsonMFTE = await computeMFTE(strConfiguredEnvironmentCmd, procNumString);
 
+        // Remove leading and trailing {} to support insert into larger json
+        jsonStrTempA = jsonMFTE.slice(0, -1);
+        jsonStrTempB = jsonStrTempA.substring(1);
+        jsonMFTE     = jsonStrTempB.toString();
+        
         // collect CTM data
         procNumString = CommonUtils.getProcNumString(context, strPrefix);
         strMessage = " -> Build 'Infrastructure' Tree ...";
@@ -335,7 +346,7 @@ export async function getCtmInfrastructure(context: vscode.ExtensionContext) {
         let elapsed = new Date().getTime() - start;
         // Build final JSON
         jsonStrE = jsonStrE.slice(0, -1);
-        jsonStr = '{"Selected": "' + strConfiguredEnvironmentName + '",' + jsonEnvironments + ',"discovery": "' + ctmDiscoverDate.toString() + '","age": "","datacenters": [' + jsonStrE + '],' + jsonConnectionProfilesCentralized + ',' + jsonWorkloadPolicies + ',' + jsonSecrets + ',' + jsonSiteStandards + ',"elapsed":"' + elapsed + '","status":"success"}';
+        jsonStr = '{"Selected": "' + strConfiguredEnvironmentName + '",' + jsonEnvironments + ',"discovery": "' + ctmDiscoverDate.toString() + '","age": "","datacenters": [' + jsonStrE + '],' + jsonConnectionProfilesCentralized + ',' + jsonWorkloadPolicies + ',' + jsonSecrets + ',' + jsonSiteStandards +  ',' + jsonMFTE + ',"elapsed":"' + elapsed + '","status":"success"}';
         jsonStrFinal = jsonStr;
 
         // report CTM data
@@ -657,6 +668,33 @@ export async function computeConnectionProfilesCentralized(envCmd: string, sProc
     }
 }
 
+/**
+ * Get Control-M all Agents in a all host group via CTM AAPI
+ * @param envCmd CTM AAPI environment command, example: ' -e default'
+ * @param sProcNum Output channel message prefix
+ */
+export async function computeMFTE(envCmd: string, sProcNum: string) {
+
+    let jsonStrA: string;
+    let jsonStrB: string;
+    let jsonStrC: string;
+    let jsonStrMfteSites: string |undefined;
+    let jsonStrFinal: string = "";
+
+    let aiProfiles: string;
+    let baseProfiles: string;
+
+    jsonStrMfteSites = '{"sites": []}';
+    
+    // Remove leading and trailing {} to support insert into larger json
+    jsonStrA = jsonStrMfteSites.slice(0, -1);
+    jsonStrB = jsonStrA.substring(1);
+    jsonStrMfteSites = jsonStrB.toString();
+
+    // Build Final JSON
+    jsonStrFinal = '{"mfte": { ' + jsonStrMfteSites +  '}}';
+    return jsonStrFinal;
+}
 
 export async function checkJson(data: string, step: string) {
     const jsonStr = JSON.stringify(data);
@@ -1331,56 +1369,62 @@ export function computeCalendars(envCmd: string, ctm: string, sProcNum: string) 
     let strCalendarType: string |undefined;
     let strCalendarServer: string |undefined;
 
-
+    
     if (! jsonCtmData.length) {
         jsonStrCalendars = '{"calendars":{}}';
     } else { // Get Calendars
         let jsonCalendars = json.parse(jsonCtmData.toString());
         let strCalendar = JSON.stringify(jsonCalendars);
 
-        for (let item in jsonCalendars) {
+        // check if calendar is returning an error message
+        if (jsonCalendars.errors && jsonCalendars.errors.length > 0) {
+            jsonStrCalendars = '{"calendars":{}}';
+        } else {
 
-            itemCalendar = jsonCalendars[item];
-            strCalendarName = item;
-            strCalendarAlias = itemCalendar["Alias"];
-            strCalendarType = itemCalendar["Type"];
-            strCalendarServer = itemCalendar["Server"];
+            for (let item in jsonCalendars) {
 
-            if (strCalendarServer === undefined) {
-                strCalendarServer = "";
-            }
+                itemCalendar = jsonCalendars[item];
+                strCalendarName = item;
+                strCalendarAlias = itemCalendar["Alias"];
+                strCalendarType = itemCalendar["Type"];
+                strCalendarServer = itemCalendar["Server"];
 
-            if (strCalendarAlias === undefined) {
-                strCalendarAlias = "";
-            }
-
-
-            jsonStrX = '{"name":"' + strCalendarName + '","alias":"' + strCalendarAlias + '","type":"' + strCalendarType + '","server":"' + strCalendarServer + '"}';
-
-            // 'Calendar:Periodic'
-            if (strCalendarType.includes("Periodic")) {
-                if (jsonStrA === undefined) {
-                    jsonStrA = jsonStrX;
-                } else {
-                    jsonStrA = jsonStrA + ',' + jsonStrX;
+                if (strCalendarServer === undefined) {
+                    strCalendarServer = "";
                 }
-            }
 
-            // 'Calendar:Regular'
-            if (strCalendarType.includes("Regular")) {
-                if (jsonStrB === undefined) {
-                    jsonStrB = jsonStrX;
-                } else {
-                    jsonStrB = jsonStrB + ',' + jsonStrX;
+                if (strCalendarAlias === undefined) {
+                    strCalendarAlias = "";
                 }
-            }
 
-            // 'Calendar:RuleBasedCalendar'
-            if (strCalendarType.includes("RuleBasedCalendar")) {
-                if (jsonStrC === undefined) {
-                    jsonStrC = jsonStrX;
-                } else {
-                    jsonStrC = jsonStrC + ',' + jsonStrX;
+
+                jsonStrX = '{"name":"' + strCalendarName + '","alias":"' + strCalendarAlias + '","type":"' + strCalendarType + '","server":"' + strCalendarServer + '"}';
+
+                // 'Calendar:Periodic'
+                if (strCalendarType.includes("Periodic")) {
+                    if (jsonStrA === undefined) {
+                        jsonStrA = jsonStrX;
+                    } else {
+                        jsonStrA = jsonStrA + ',' + jsonStrX;
+                    }
+                }
+
+                // 'Calendar:Regular'
+                if (strCalendarType.includes("Regular")) {
+                    if (jsonStrB === undefined) {
+                        jsonStrB = jsonStrX;
+                    } else {
+                        jsonStrB = jsonStrB + ',' + jsonStrX;
+                    }
+                }
+
+                // 'Calendar:RuleBasedCalendar'
+                if (strCalendarType.includes("RuleBasedCalendar")) {
+                    if (jsonStrC === undefined) {
+                        jsonStrC = jsonStrX;
+                    } else {
+                        jsonStrC = jsonStrC + ',' + jsonStrX;
+                    }
                 }
             }
         }
