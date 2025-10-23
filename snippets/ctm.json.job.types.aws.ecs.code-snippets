@@ -1,7 +1,0 @@
-{
-    "AI AWS ECS CLI Job": {
-        "prefix": "jac.job.ai.AWS.ECS.Run.Task.CLI",
-        "body": "\"ECSJob\": {\"Type\": \"Job:ApplicationIntegrator:AI ECS RunTask CLI\",\"ConnectionProfile\": \"ecs-cp\",\"AI-Cluster\": \"cluster1\",\"AI-Task Definition\": \"taskname\",\"AI-Retrieve Logs\": \"checked\",\"AI-Network Required\": \"checked\",\"AI-VPC Subnets\": \"\\\"subnet-01\\\", \\\"subnet-02\\\"\",\"AI-VPC Security Groups\": \"\\\"sg-01\\\", \\\"sg-02\\\"\",\"AI-Assign Public IP\": \"checked\",\"AI-Overrides\": \"checked\",\"AI-Container Name\": \"bash\",\"AI-Command\": \"echo \\\"hello world\\\"\",\"AI-Environment Variables\": \"{\\\"name\\\":\\\"env1\\\",\\\"value\\\":\\\"val1\\\"}\"}",
-        "description": "Run an AWS ECS Task using CLI"
-    }
-}
