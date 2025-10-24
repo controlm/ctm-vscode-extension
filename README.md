@@ -4,7 +4,7 @@
 
 Integrate BMC Control-M workflows with Visual Studio Code. Write, manage, and deploy Control-M jobs using modern development practices.
 
-![Version](https://img.shields.io/badge/Version-1.0.0-brightgreen) ![License](https://img.shields.io/badge/License-Apache%202.0-blue) ![Publisher](https://img.shields.io/badge/Publisher-BMC%20Software-blue) ![](https://img.shields.io/badge/dynamic/json.svg?label=Build%20State&url=https://raw.githubusercontent.com/controlm/ctm-vscode-extension/refs/heads/main/info.json&query=build&colorB=red)
+![Version](https://img.shields.io/badge/Version-1.0.0-brightgreen) ![License](https://img.shields.io/badge/License-Apache%202.0-blue) ![Publisher](https://img.shields.io/badge/Publisher-BMC%20Software-blue) ![](https://img.shields.io/badge/dynamic/json.svg?label=Build%20State&url=https://raw.githubusercontent.com/controlm/ctm-vscode-extension/main/package.json&query=build&colorB=red)
 
 ## Overview
 
@@ -139,5 +139,6 @@ Complete reference for all 200+ code snippets:
 - MFTE configuration snippets
 - Python API snippets
 - Usage examples and best practices
+
 
 
