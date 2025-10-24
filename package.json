@@ -1,0 +1,33 @@
+{
+  "name": "controlm-nxtgn",
+  "displayName": "Control-M Next Generation",
+  "description": "Modern Control-M automation and infrastructure management for VS Code",
+  "version": "1.0.0",
+  "license": "SEE LICENSE IN LICENSE",
+  "publisher": "bmcsoftware",
+    "build": "beta",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/controlm/ctm-vscode-extension"
+    },
+    "author": {
+        "name": "BMC Software",
+        "email": "orchestrator@bmc.com",
+        "url": "http://www.bmc.com"
+    },
+    "sponsor": {
+        "url": "https://www.jobsascode.io/"
+    },
+    "bugs": {
+        "url": "https://github.com/controlm/ctm-vscode-extension",
+        "email": "orchestrator@bmc.com"
+    },
+    "publisher": "bmcsoftware",
+    "homepage": "https://github.com/controlm/ctm-vscode-extension",
+    "icon": "resources/icon.128.png",
+    "galleryBanner": {
+        "color": "#ACD1EC",
+        "theme": "light"
+    }
+}
+  
