@@ -2,7 +2,7 @@
   "name": "jobs-as-code",
   "displayName": "Control-M Next Generation",
   "description": "Modern Control-M automation and infrastructure management for VS Code",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "SEE LICENSE IN LICENSE",
   "publisher": "bmcsoftware",
     "build": "beta",
