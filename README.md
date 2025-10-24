@@ -1,4 +1,4 @@
-# Control-M Extension for VS Code
+# Jobs-As-Code Werkzeugkiste for Control-M Next Generation
 
 **Orchestrate the Impossible™**
 
@@ -139,6 +139,7 @@ Complete reference for all 200+ code snippets:
 - MFTE configuration snippets
 - Python API snippets
 - Usage examples and best practices
+
 
 
 
