@@ -140,6 +140,17 @@ Complete reference for all 200+ code snippets:
 - Python API snippets
 - Usage examples and best practices
 
+## 📖 Control-M Folders
+
+### Privacy Guard
+
+To gather the agent's GPG keys or to import a GPG key these Control-M folder will be executed against the target agent:
+
+- [VSCODE_PRIVACY_GUARD_IMPORT](folders/VSCODE_PRIVACY_GUARD_IMPORT.json)
+
+- [VSCODE_PRIVACY_GUARD_LIST](folders/VSCODE_PRIVACY_GUARD_LIST.json)
+
+
 ## Troubleshooting
 
 If you encounter issues while using the Control-M Jobs-As-Code Toolkit, try the following tips:
