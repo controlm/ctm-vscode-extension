@@ -22,10 +22,12 @@ The Control-M Extension brings enterprise workflow automation capabilities direc
 
 ### 1. Installation
 
-Install from VS Code Marketplace:
+Install from VS Code Marketplace: [Jobs-As-Code Werkzeugkiste for Control-M Next Generation](https://marketplace.visualstudio.com/items?itemName=bmcsoftware.jobs-as-code)
+
 ```
 ext install jobs-as-code
 ```
+
 
 Or install manually:
 ```bash
