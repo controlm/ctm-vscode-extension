@@ -1,0 +1,75 @@
+{
+  "VSCODE_PRIVACY_GUARD_LIST" : {
+    "Type" : "Folder",
+    "ControlmServer" : "",
+    "Description" : "For Jobs-As-Code Integration",
+    "OrderMethod" : "Manual",
+    "ActiveRetentionPolicy" : "CleanEndedOK",
+    "RunAs" : "",
+    "SubApplication" : "Privacy Guard",
+    "Application" : "VSCODE",
+    "When" : {
+      "RuleBasedCalendars" : {
+        "Included" : [ "EVERYDAY" ],
+        "EVERYDAY" : {
+          "Type" : "Calendar:RuleBased",
+          "When" : {
+            "DaysRelation" : "OR",
+            "WeekDays" : [ "NONE" ],
+            "MonthDays" : [ "ALL" ]
+          }
+        }
+      }
+    },
+    "List GPG Keys Private" : {
+      "Type" : "Job:Command",
+      "SubApplication" : "Privacy Guard",
+      "Host" : "",
+      "Description" : "UUDI: private",
+      "RunAs" : "",
+      "Application" : "VSCODE",
+      "Command" : "gpg --list-secret-keys --keyid-format LONG",
+      "IfBase:Folder:CompletionStatus_0" : {
+        "Type" : "If:CompletionStatus",
+        "CompletionStatus" : "NOTOK",
+        "Action:SetToOK_0" : {
+          "Type" : "Action:SetToOK"
+        }
+      },
+      "eventsToWaitFor" : {
+        "Type" : "WaitForEvents",
+        "Events" : [ {
+          "Event" : "List_GPG_Keys_Public-TO-List_GPG_Keys_Private__%%SMART_ORDERID"
+        } ]
+      },
+      "eventsToDelete" : {
+        "Type" : "DeleteEvents",
+        "Events" : [ {
+          "Event" : "List_GPG_Keys_Public-TO-List_GPG_Keys_Private__%%SMART_ORDERID"
+        } ]
+      }
+    },
+    "List GPG Keys Public" : {
+      "Type" : "Job:Command",
+      "SubApplication" : "Privacy Guard",
+      "Host" : "",
+      "Description" : "UUDI: public",
+      "RunAs" : "",
+      "Application" : "VSCODE",
+      "Command" : "gpg --list-keys --keyid-format LONG",
+      "IfBase:Folder:CompletionStatus_0" : {
+        "Type" : "If:CompletionStatus",
+        "CompletionStatus" : "NOTOK",
+        "Action:SetToOK_0" : {
+          "Type" : "Action:SetToOK"
+        }
+      },
+      "eventsToAdd" : {
+        "Type" : "AddEvents",
+        "Events" : [ {
+          "Event" : "List_GPG_Keys_Public-TO-List_GPG_Keys_Private__%%SMART_ORDERID"
+        } ]
+      }
+    }
+  }
+}
