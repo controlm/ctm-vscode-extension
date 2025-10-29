@@ -1,0 +1,264 @@
+{
+  "VSCODE_PRIVACY_GUARD_IMPORT" : {
+    "Type" : "Folder",
+    "Variables" : [ {
+      "GPG_KEY_FILE" : "/tmp/gpg.key.asc"
+    }, {
+      "GPG_KEY_TEMP_FILE" : "/tmp/gpg.key.temp"
+    }, {
+      "GPG_KEY_PART_1" : ""
+    }, {
+      "GPG_KEY_PART_2" : ""
+    }, {
+      "GPG_KEY_PART_3" : ""
+    }, {
+      "GPG_KEY_PART_4" : ""
+    } ],
+    "ControlmServer" : "",
+    "Description" : "For Jobs-As-Code Integration",
+    "OrderMethod" : "Manual",
+    "ActiveRetentionPolicy" : "CleanEndedOK",
+    "RunAs" : "",
+    "SubApplication" : "Privacy Guard",
+    "Application" : "VSCODE",
+    "When" : {
+      "RuleBasedCalendars" : {
+        "Included" : [ "EVERYDAY" ],
+        "EVERYDAY" : {
+          "Type" : "Calendar:RuleBased",
+          "When" : {
+            "DaysRelation" : "OR",
+            "WeekDays" : [ "NONE" ],
+            "MonthDays" : [ "ALL" ]
+          }
+        }
+      }
+    },
+    "Format File" : {
+      "Type" : "Job:Command",
+      "SubApplication" : "Privacy Guard",
+      "Host" : "",
+      "CreatedBy" : "orchstrator@bmc.com",
+      "Description" : "\\n",
+      "RunAs" : "",
+      "Application" : "VSCODE",
+      "Command" : "sed 's/ /\\n/g' \"%%GPG_KEY_TEMP_FILE\" > \"%%GPG_KEY_FILE\"",
+      "When" : {
+        "WeekDays" : [ "NONE" ],
+        "MonthDays" : [ "ALL" ],
+        "DaysRelation" : "OR"
+      },
+      "eventsToWaitFor" : {
+        "Type" : "WaitForEvents",
+        "Events" : [ {
+          "Event" : "GPG_Key_Part_4-TO-Format_File__%%SMART_ORDERID"
+        } ]
+      },
+      "eventsToAdd" : {
+        "Type" : "AddEvents",
+        "Events" : [ {
+          "Event" : "Format_File-TO-GPG_Key_Final__%%SMART_ORDERID"
+        } ]
+      },
+      "eventsToDelete" : {
+        "Type" : "DeleteEvents",
+        "Events" : [ {
+          "Event" : "GPG_Key_Part_4-TO-Format_File__%%SMART_ORDERID"
+        } ]
+      }
+    },
+    "GPG Import Key" : {
+      "Type" : "Job:Command",
+      "SubApplication" : "Privacy Guard",
+      "Host" : "",
+      "CreatedBy" : "orchstrator@bmc.com",
+      "Description" : "Import public key: gpg.pub.asc",
+      "RunAs" : "",
+      "Application" : "VSCODE",
+      "Command" : "gpg --batch --yes --import \"%%GPG_KEY_FILE\"",
+      "When" : {
+        "WeekDays" : [ "NONE" ],
+        "MonthDays" : [ "ALL" ],
+        "DaysRelation" : "OR"
+      },
+      "eventsToWaitFor" : {
+        "Type" : "WaitForEvents",
+        "Events" : [ {
+          "Event" : "GPG_Key_Final-TO-GPG_Import_Key__%%SMART_ORDERID"
+        } ]
+      },
+      "eventsToDelete" : {
+        "Type" : "DeleteEvents",
+        "Events" : [ {
+          "Event" : "GPG_Key_Final-TO-GPG_Import_Key__%%SMART_ORDERID"
+        } ]
+      }
+    },
+    "GPG Key Final" : {
+      "Type" : "Job:EmbeddedScript",
+      "Script" : "#!/bin/bash\\nGPG_KEY_FILE=$(env | grep \"GPG_KEY_FILE\" | awk -F \"=\" '{print $2}')\\n\\nprintf '%s\\n' \"-----BEGIN PGP PUBLIC KEY BLOCK-----\" \"\" > \"${GPG_KEY_FILE}.fixed\" && \\\\ncat \"$GPG_KEY_FILE\" >> \"${GPG_KEY_FILE}.fixed\" && \\\\nprintf '%s\\n' \"-----END PGP PUBLIC KEY BLOCK-----\" >> \"${GPG_KEY_FILE}.fixed\"\\n\\n\\nmv \"${GPG_KEY_FILE}.fixed\" \"${GPG_KEY_FILE}\"\\nrm \"${GPG_KEY_TEMP_FILE}\"",
+      "SubApplication" : "Privacy Guard",
+      "FileName" : "gpg.key.format.sh",
+      "Host" : "",
+      "CreatedBy" : "orchstrator@bmc.com",
+      "RunAs" : "",
+      "Application" : "VSCODE",
+      "Variables" : [ {
+        "GPG_KEY_TEMP_FILE" : "%%GPG_KEY_TEMP_FILE"
+      }, {
+        "GPG_KEY_FILE" : "%%GPG_KEY_FILE"
+      } ],
+      "When" : {
+        "WeekDays" : [ "NONE" ],
+        "MonthDays" : [ "ALL" ],
+        "DaysRelation" : "OR"
+      },
+      "eventsToWaitFor" : {
+        "Type" : "WaitForEvents",
+        "Events" : [ {
+          "Event" : "Format_File-TO-GPG_Key_Final__%%SMART_ORDERID"
+        } ]
+      },
+      "eventsToAdd" : {
+        "Type" : "AddEvents",
+        "Events" : [ {
+          "Event" : "GPG_Key_Final-TO-GPG_Import_Key__%%SMART_ORDERID"
+        } ]
+      },
+      "eventsToDelete" : {
+        "Type" : "DeleteEvents",
+        "Events" : [ {
+          "Event" : "Format_File-TO-GPG_Key_Final__%%SMART_ORDERID"
+        } ]
+      }
+    },
+    "GPG Key Part 1" : {
+      "Type" : "Job:Command",
+      "SubApplication" : "Privacy Guard",
+      "Host" : "",
+      "CreatedBy" : "orchstrator@bmc.com",
+      "RunAs" : "",
+      "Application" : "VSCODE",
+      "Command" : "echo %%GPG_KEY_PART_1 | tee %%GPG_KEY_TEMP_FILE",
+      "Variables" : [ {
+        "GPG_KEY_PART2" : "%%GPG_KEY_PART2"
+      } ],
+      "When" : {
+        "WeekDays" : [ "NONE" ],
+        "MonthDays" : [ "ALL" ],
+        "DaysRelation" : "OR"
+      },
+      "eventsToAdd" : {
+        "Type" : "AddEvents",
+        "Events" : [ {
+          "Event" : "GPG_Key_Part_1-TO-GPG_Key_Part_2__%%SMART_ORDERID"
+        } ]
+      }
+    },
+    "GPG Key Part 2" : {
+      "Type" : "Job:Command",
+      "SubApplication" : "Privacy Guard",
+      "Host" : "",
+      "CreatedBy" : "orchstrator@bmc.com",
+      "RunAs" : "",
+      "Application" : "VSCODE",
+      "Command" : "echo %%GPG_KEY_PART_2 | tee -a %%GPG_KEY_TEMP_FILE",
+      "Variables" : [ {
+        "GPG_KEY_PART2" : "%%GPG_KEY_PART2"
+      } ],
+      "When" : {
+        "WeekDays" : [ "NONE" ],
+        "MonthDays" : [ "ALL" ],
+        "DaysRelation" : "OR"
+      },
+      "eventsToWaitFor" : {
+        "Type" : "WaitForEvents",
+        "Events" : [ {
+          "Event" : "GPG_Key_Part_1-TO-GPG_Key_Part_2__%%SMART_ORDERID"
+        } ]
+      },
+      "eventsToAdd" : {
+        "Type" : "AddEvents",
+        "Events" : [ {
+          "Event" : "GPG_Key_Part_2-TO-GPG_Key_Part_3__%%SMART_ORDERID"
+        } ]
+      },
+      "eventsToDelete" : {
+        "Type" : "DeleteEvents",
+        "Events" : [ {
+          "Event" : "GPG_Key_Part_1-TO-GPG_Key_Part_2__%%SMART_ORDERID"
+        } ]
+      }
+    },
+    "GPG Key Part 3" : {
+      "Type" : "Job:Command",
+      "SubApplication" : "Privacy Guard",
+      "Host" : "",
+      "CreatedBy" : "orchstrator@bmc.com",
+      "RunAs" : "",
+      "Application" : "VSCODE",
+      "Command" : "echo %%GPG_KEY_PART_3 | tee -a %%GPG_KEY_TEMP_FILE",
+      "Variables" : [ {
+        "GPG_KEY_PART2" : "%%GPG_KEY_PART2"
+      } ],
+      "When" : {
+        "WeekDays" : [ "NONE" ],
+        "MonthDays" : [ "ALL" ],
+        "DaysRelation" : "OR"
+      },
+      "eventsToWaitFor" : {
+        "Type" : "WaitForEvents",
+        "Events" : [ {
+          "Event" : "GPG_Key_Part_2-TO-GPG_Key_Part_3__%%SMART_ORDERID"
+        } ]
+      },
+      "eventsToAdd" : {
+        "Type" : "AddEvents",
+        "Events" : [ {
+          "Event" : "GPG_Key_Part_3-TO-GPG_Key_Part_4__%%SMART_ORDERID"
+        } ]
+      },
+      "eventsToDelete" : {
+        "Type" : "DeleteEvents",
+        "Events" : [ {
+          "Event" : "GPG_Key_Part_2-TO-GPG_Key_Part_3__%%SMART_ORDERID"
+        } ]
+      }
+    },
+    "GPG Key Part 4" : {
+      "Type" : "Job:Command",
+      "SubApplication" : "Privacy Guard",
+      "Host" : "",
+      "CreatedBy" : "orchstrator@bmc.com",
+      "RunAs" : "",
+      "Application" : "VSCODE",
+      "Command" : "echo %%GPG_KEY_PART_4 | tee -a %%GPG_KEY_TEMP_FILE",
+      "Variables" : [ {
+        "GPG_KEY_PART2" : "%%GPG_KEY_PART2"
+      } ],
+      "When" : {
+        "WeekDays" : [ "NONE" ],
+        "MonthDays" : [ "ALL" ],
+        "DaysRelation" : "OR"
+      },
+      "eventsToWaitFor" : {
+        "Type" : "WaitForEvents",
+        "Events" : [ {
+          "Event" : "GPG_Key_Part_3-TO-GPG_Key_Part_4__%%SMART_ORDERID"
+        } ]
+      },
+      "eventsToAdd" : {
+        "Type" : "AddEvents",
+        "Events" : [ {
+          "Event" : "GPG_Key_Part_4-TO-Format_File__%%SMART_ORDERID"
+        } ]
+      },
+      "eventsToDelete" : {
+        "Type" : "DeleteEvents",
+        "Events" : [ {
+          "Event" : "GPG_Key_Part_3-TO-GPG_Key_Part_4__%%SMART_ORDERID"
+        } ]
+      }
+    }
+  }
+}
