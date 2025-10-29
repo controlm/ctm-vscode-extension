@@ -16,7 +16,7 @@ The Control-M Extension brings enterprise workflow automation capabilities direc
 - 🔌 **Connection Profiles** - Manage multiple Control-M environments
 - 📝 **Code Snippets** - Pre-built templates for jobs and configurations
 - 🔄 **Jobs-as-Code** - Define workflows in JSON or Python
-- 📊 **Telemetry** - Usage tracking for license compliance (required)
+- 📊 **Telemetry** - Usage and feature tracking (experimental)
 
 ## Quick Start
 
