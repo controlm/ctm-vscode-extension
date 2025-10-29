@@ -4,7 +4,7 @@
 
 Integrate BMC Control-M workflows with Visual Studio Code. Write, manage, and deploy Control-M jobs using modern development practices.
 
-![Version](https://img.shields.io/badge/Version-1.0.0-brightgreen) ![License](https://img.shields.io/badge/License-Apache%202.0-blue) ![Publisher](https://img.shields.io/badge/Publisher-BMC%20Software-blue) ![](https://img.shields.io/badge/dynamic/json.svg?label=Build%20State&url=https://raw.githubusercontent.com/controlm/ctm-vscode-extension/main/package.json&query=build&colorB=red)
+![Version](https://img.shields.io/badge/Version-1.0.5-brightgreen) ![License](https://img.shields.io/badge/License-Apache%202.0-blue) ![Publisher](https://img.shields.io/badge/Publisher-BMC%20Software-blue) ![](https://img.shields.io/badge/dynamic/json.svg?label=Build%20State&url=https://raw.githubusercontent.com/controlm/ctm-vscode-extension/main/package.json&query=build&colorB=red)
 
 ## Overview
 
@@ -24,12 +24,12 @@ The Control-M Extension brings enterprise workflow automation capabilities direc
 
 Install from VS Code Marketplace:
 ```
-ext install controlm-nxtgn
+ext install jobs-as-code
 ```
 
 Or install manually:
 ```bash
-code --install-extension controlm-nxtgn-1.0.0.vsix
+code --install-extension jobs-as-code-x.y.z.vsix 
 ```
 
 ### 2. Configure Connection
@@ -37,13 +37,13 @@ code --install-extension controlm-nxtgn-1.0.0.vsix
 1. Open VS Code Settings (`Cmd+,` or `Ctrl+,`)
 2. Search for "Control-M"
 3. Configure:
-   - **Control-M URL**: Your Automation API endpoint (e.g., `https://ctm.example.com:8443/automation-api`)
+   - **Control-M URL**: Your Automation API endpoint (e.g., `https://ctm.example.local:8443/automation-api`)
    - **API Token**: Your Control-M API token (stored securely)
 
 Or use `.ctm_connection.json` in your workspace:
 ```json
 {
-  "endpoint": "https://ctm.example.com:8443/automation-api",
+  "endpoint": "https://ctm.example.local:8443/automation-api",
   "token": "your-api-token"
 }
 ```
@@ -51,7 +51,7 @@ Or use `.ctm_connection.json` in your workspace:
 **Getting an API Token:**
 ```bash
 # Login to get token
-https://ctm.example.com:8443/
+https://ctm.example.local:8443/Welcome
 ```
 
 ### 3. Start Using
@@ -140,6 +140,49 @@ Complete reference for all 200+ code snippets:
 - Python API snippets
 - Usage examples and best practices
 
+## Troubleshooting
+
+If you encounter issues while using the Control-M Jobs-As-Code Toolkit, try the following tips:
+
+### Connection Issues:
+
+Double-check your Control-M Automation API endpoint and API token in the extension settings.
+Ensure your network allows access to the Control-M server.
+If using a .ctm_connection.json file, verify its format and location.
+
+### Authentication Problems:
+
+Make sure your API token is valid and not expired.
+Refer to the Getting Started Guide for instructions on obtaining a new token.
+
+### Missing Features or Commands:
+
+Confirm you have the latest version of the extension installed.
+Review the Features Guide to see which functionality is supported.
+
+### General Errors:
+
+Check the output and error logs in VS Code (View > Output).
+Restart VS Code after installation or configuration changes.
+If problems persist, consult the documentation or reach out via the BMC community forums or GitHub issues.
 
 
+## Disclaimer
+This extension is provided by BMC Software as a community-driven, open-source solution for educational and demonstration purposes only. The content and functionality are offered “as is” without warranty of any kind, either express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement. Use of this extension in any production or production-like environment is strictly out of scope and not supported.
 
+## User Responsibilities
+
+By downloading or using this extension, you acknowledge and agree that:
+
+- You are solely responsible for evaluating its suitability for your intended use.
+- You must not use this extension in any production or production-like environment.
+- You are responsible for ensuring compliance with all applicable laws, regulations, and organizational policies when using this extension.
+- Any reliance on the extension or its outputs is at your own risk.
+
+## Limitation of Liability
+
+To the fullest extent permitted by law, BMC Software and its contributors disclaim any and all liability for any direct, indirect, incidental, special, consequential, or punitive damages arising out of or in connection with the use of, or reliance on, this extension or any related information.
+
+## Need help or want to contribute?
+
+Visit the https://community.bmc.com/ or open an issue on https://github.com/controlm/ctm-vscode-extension/issues.
