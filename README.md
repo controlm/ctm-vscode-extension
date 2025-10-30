@@ -4,7 +4,7 @@
 
 Integrate BMC Control-M workflows with Visual Studio Code. Write, manage, and deploy Control-M jobs using modern development practices.
 
-![Version](https://img.shields.io/badge/Version-1.0.5-brightgreen) ![License](https://img.shields.io/badge/License-Apache%202.0-blue) ![Publisher](https://img.shields.io/badge/Publisher-BMC%20Software-blue) ![](https://img.shields.io/badge/dynamic/json.svg?label=Build%20State&url=https://raw.githubusercontent.com/controlm/ctm-vscode-extension/main/package.json&query=build&colorB=red)
+![Version](https://img.shields.io/badge/Version-1.0.7-brightgreen) ![License](https://img.shields.io/badge/License-Apache%202.0-blue) ![Publisher](https://img.shields.io/badge/Publisher-BMC%20Software-blue) ![](https://img.shields.io/badge/dynamic/json.svg?label=Build%20State&url=https://raw.githubusercontent.com/controlm/ctm-vscode-extension/main/package.json&query=build&colorB=red)
 
 ## Overview
 
@@ -199,3 +199,4 @@ To the fullest extent permitted by law, BMC Software and its contributors discla
 ## Need help or want to contribute?
 
 Visit the https://community.bmc.com/ or open an issue on https://github.com/controlm/ctm-vscode-extension/issues.
+
